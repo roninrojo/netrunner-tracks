@@ -27,10 +27,22 @@ html {
 body {
     min-height: 100%;
     background-image: $bg;
+    position: relative;
 }
 
 .container {
   margin: 0 auto;
   max-width: 48rem;
   width: 90%;
+  position: relative;
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.player-aid {
+    display: none;
 }

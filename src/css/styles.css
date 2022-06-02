@@ -3,11 +3,15 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
-  grid-template-areas: "menu" "clicks" "credits" "memory" "tags";
+  grid-template-areas: "clicks" "credits" "memory" "tags";
 }
-
-.menu {
-  grid-area: menu;
+@media (orientation: landscape) {
+  .tracks {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
+    grid-template-areas: "clicks credits" "clicks memory" "clicks tags";
+  }
 }
 
 .tracks-clicks {
@@ -30,14 +34,35 @@
 .tracks-credits,
 .tracks-memory,
 .tracks-tags {
-  border: 1px solid red;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tracks-clicks {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (orientation: landscape) {
+  .tracks-clicks {
+    flex-direction: column;
+  }
+}
+.tracks-clicks__row {
+  display: flex;
+  gap: 1rem;
+}
+@media (orientation: landscape) {
+  .tracks-clicks__row {
+    flex-direction: column;
+  }
 }
 
 .click {
   width: 3rem;
   height: 3rem;
   border-radius: 100%;
-  border: 4px solid #000;
+  border: 4px solid #fff;
   display: inline-block;
 }
 
@@ -73,12 +98,24 @@ html {
 body {
   min-height: 100%;
   background-image: linear-gradient(90deg, rgb(43, 77, 130), rgb(43, 96, 111));
+  position: relative;
 }
 
 .container {
   margin: 0 auto;
   max-width: 48rem;
   width: 90%;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.player-aid {
+  display: none;
 }
 
 /*--------------------------------------------------------*\
