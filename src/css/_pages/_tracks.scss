@@ -1,0 +1,34 @@
+.tracks {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+    gap: 1rem; 
+    grid-template-areas: 
+        "menu"
+        "clicks"
+        "credits"
+        "memory"
+        "tags"; 
+}
+.menu { grid-area: menu; }
+.tracks-clicks { grid-area: clicks; }
+.tracks-credits { grid-area: credits; }
+.tracks-memory { grid-area: memory; }
+.tracks-tags { grid-area: tags; }
+
+.tracks-clicks,
+.tracks-credits,
+.tracks-memory,
+.tracks-tags {
+    border: 1px solid red;
+}
+
+// Clicks
+
+.click {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    border: 4px solid #000;
+    display: inline-block;
+}

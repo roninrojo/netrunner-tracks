@@ -1,9 +1,86 @@
+.tracks {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  grid-template-areas: "menu" "clicks" "credits" "memory" "tags";
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.tracks-clicks {
+  grid-area: clicks;
+}
+
+.tracks-credits {
+  grid-area: credits;
+}
+
+.tracks-memory {
+  grid-area: memory;
+}
+
+.tracks-tags {
+  grid-area: tags;
+}
+
+.tracks-clicks,
+.tracks-credits,
+.tracks-memory,
+.tracks-tags {
+  border: 1px solid red;
+}
+
+.click {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  border: 4px solid #000;
+  display: inline-block;
+}
+
 /*--------------------------------------------------------*\
-    STYLES
+    VARIABLES
 \*--------------------------------------------------------*/
 /**
-* GENERAL
+* Colors, sizes, typos, etc.
 */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+}
+
+/* Small screens (default) */
+/* Medium screens (640px) */
+@media (min-width: 40rem) {
+  html {
+    font-size: 112%;
+  }
+}
+/* Large screens (1024px) */
+@media (min-width: 64rem) {
+  html {
+    font-size: 120%;
+  }
+}
 body {
-  background-color: rgb(140, 145, 171);
-}/*# sourceMappingURL=styles.css.map */
+  min-height: 100%;
+  background-image: linear-gradient(90deg, rgb(43, 77, 130), rgb(43, 96, 111));
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 48rem;
+  width: 90%;
+}
+
+/*--------------------------------------------------------*\
+    STYLES
+\*--------------------------------------------------------*//*# sourceMappingURL=styles.css.map */

@@ -1,8 +1,10 @@
 /*--------------------------------------------------------*\
-    STYLES
+    VARIABLES
 \*--------------------------------------------------------*/
 
 
-@use "_pages/tracks";
-@use "_general/general";
+/**
+* Colors, sizes, typos, etc.
+*/
 
+$bg: linear-gradient(90deg, rgb(43, 77, 130),rgb(43, 96, 111));
