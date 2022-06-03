@@ -1,3 +1,50 @@
+@charset "UTF-8";
+/*--------------------------------------------------------*\
+    VARIABLES
+\*--------------------------------------------------------*/
+/**
+* Colors, sizes, typos, etc.
+*/
+/*--------------------------------------------------------*\
+    TYPOGRAPHY
+\*--------------------------------------------------------*/
+/**
+* Definición de tipografía y tamaños
+*/
+body {
+  font-family: "Inconsolata", "Courier New", Courier, monospace;
+  color: #fff;
+  text-shadow: 0 0 5px #C8C8C8;
+}
+
+.section-title {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+}
+
+.svg-click {
+  width: 80%;
+}
+.svg-click__fill {
+  fill: #fff;
+}
+
+.crtlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) 0px, transparent 3px, transparent 3px);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .tracks {
   display: grid;
   grid-template-columns: 1fr;
@@ -5,7 +52,7 @@
   gap: 1rem;
   grid-template-areas: "clicks" "credits" "memory" "tags";
 }
-@media (orientation: landscape) {
+@media (max-width: 1023px) and (orientation: landscape) {
   .tracks {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -34,44 +81,42 @@
 .tracks-credits,
 .tracks-memory,
 .tracks-tags {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
 }
 
 .tracks-clicks {
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-@media (orientation: landscape) {
-  .tracks-clicks {
-    flex-direction: column;
-  }
+  flex-direction: column;
 }
 .tracks-clicks__row {
   display: flex;
   gap: 1rem;
 }
-@media (orientation: landscape) {
+@media (max-width: 1023px) and (orientation: landscape) {
   .tracks-clicks__row {
     flex-direction: column;
   }
 }
 
 .click {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 100%;
   border: 4px solid #fff;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.click svg {
+  display: none;
+}
+.click.selected svg {
+  display: block;
 }
 
-/*--------------------------------------------------------*\
-    VARIABLES
-\*--------------------------------------------------------*/
-/**
-* Colors, sizes, typos, etc.
-*/
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -97,13 +142,17 @@ html {
 }
 body {
   min-height: 100%;
-  background-image: linear-gradient(90deg, rgb(43, 77, 130), rgb(43, 96, 111));
+  height: 100vh;
+  background-color: #000;
+  background-image: radial-gradient(rgba(65, 105, 145, 0.75), black 120%);
   position: relative;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 48rem;
+  max-width: 100%;
   width: 90%;
   position: relative;
 }

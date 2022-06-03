@@ -1,0 +1,18 @@
+.crtlines::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: repeating-linear-gradient(
+        0deg,
+        rgba(black, 0.25),
+        rgba(black, 0.25) 0px,
+        transparent 3px,
+        transparent 3px);
+        z-index: 2;
+        // background-size: 100% 4px;
+        pointer-events: none;
+}

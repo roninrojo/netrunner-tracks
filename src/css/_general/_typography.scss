@@ -1,0 +1,24 @@
+@use "../_modules/vars" as *;
+
+/*--------------------------------------------------------*\
+    TYPOGRAPHY
+\*--------------------------------------------------------*/
+
+
+/**
+* Definición de tipografía y tamaños
+*/
+
+body {
+    font-family: 'Inconsolata', 'Courier New', Courier, monospace;
+    color: #fff;
+    text-shadow: 0 0 5px #C8C8C8;
+}
+
+.section-title {
+    display: inline-block;
+    font-size: .9em;
+    font-weight: bold;
+    text-transform: lowercase;
+    margin-bottom: $space;
+}
