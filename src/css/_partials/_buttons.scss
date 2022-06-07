@@ -1,12 +1,21 @@
+@use "../_modules/vars" as *;
+@use "../_mixins/box-shadow" as *;
 /*--------------------------------------------------------*\
     BUTTONS
 \*--------------------------------------------------------*/
 
 .button {
-    padding:$space / 2;
+    padding: .2rem;
+    width: max-content;
+    cursor: pointer;
+
+    &:active {
+        @include box-shadow;
+    }
 
     &--tracks {
-        background-color: rgba(255, 255, 255, 0.3);
-        border-radius: $space / 3;
+        background-color: rgba(255, 255, 255, .1);
+        border-radius: $bdr;
+        width: max-content;
     }
 }

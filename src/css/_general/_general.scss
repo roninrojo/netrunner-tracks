@@ -1,4 +1,5 @@
 @use '../_modules/vars' as *;
+@use "../_mixins/include-mediaa" as *;
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -35,10 +36,8 @@ body {
 }
 
 .container {
-  margin: 0 auto;
-  max-width: 100%;
-  width: 90%;
-  position: relative;
+	width: 100%;
+	position: relative;
 }
 
 .menu {

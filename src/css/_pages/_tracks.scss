@@ -1,10 +1,11 @@
 @use "../_mixins/include-mediaa" as *;
+@use "../_modules/vars" as *;
 
 .tracks {
     display: grid;
     grid-template-columns: 1fr; 
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-    gap: 1rem; 
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
+    gap: 1vw; 
     grid-template-areas: 
         "clicks"
         "credits"
@@ -14,13 +15,14 @@
     @include media('<desktop','landscape') {
         grid-template-columns: 1fr 2fr; 
         grid-template-rows: 1fr 1fr 1fr; 
-        gap: 1rem; 
+        gap: 1vh; 
         grid-template-areas: 
         "clicks credits"
         "clicks memory"
         "clicks tags";
     }
 }
+
 .tracks-clicks { grid-area: clicks; }
 .tracks-credits { grid-area: credits; }
 .tracks-memory { grid-area: memory; }
@@ -32,6 +34,7 @@
 .tracks-tags {
     border: 2px solid rgba(255, 255, 255, .2);
     padding: 1rem;
+    border-radius: $bdr;
 }
 
 // Clicks
@@ -39,34 +42,107 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     
     @include media('<desktop','landscape') {
+        flex-direction: row;
+        gap: 1vw;
+        justify-content: space-evenly;
+        align-items: flex-start;
     }
 
     &__row {
         display: flex;
-        gap: 1rem;
+        gap: 3vw;
+        margin-bottom: $space;
+        
 
         @include media('<desktop','landscape') {
             flex-direction: column;
+            gap: 1vw;
+            margin-bottom: 0;
         }
     }
 }
 
 .click {
-    width: 5rem;
-    height: 5rem;
+    width: 20vw;
+    height: 20vw;
     border-radius: 100%;
-    border: 4px solid #fff;
+    border: 4px solid rgba(255, 255, 255, .2);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 
-    svg {
+    &-animation {
+        width: 20vw;
+        height: 20vw;
         display: none;
+        align-items: center;
+        justify-content: center;
+        animation: rotation 3s linear infinite;
+        position: relative;
+        
+        &:after {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20vw;
+            height: 20vw;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 3px solid;
+            border-color: $lightblue transparent;
+            
+            @include media('<desktop','landscape') {
+                width: 20vh;
+                height: 20vh;
+            }
+        }
+
+        @include media('<desktop','landscape') {
+            width: 20vh;
+            height: 20vh;
+        }
     }
-    &.selected svg {
-        display: block;
+
+    @include media('<desktop','landscape') {
+        width: 20vh;
+        height: 20vh;
+    }
+
+
+    &.selected {
+        .click-animation {
+            animation: rotation 3s linear infinite;
+            display: flex;
+            position: absolute;
+        }
+
+        svg {
+            display: none;
+        }
+    }
+
+    &-number {
+        font-size: 2em;
+        font-weight: bold;
+        text-shadow: 0 0 10px #fff;
+    }
+}
+
+// Credits
+
+// ANIMATIONS
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

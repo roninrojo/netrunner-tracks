@@ -1,4 +1,5 @@
 @use "../_modules/vars" as *;
+@use "../_mixins/include-mediaa" as *;
 
 /*--------------------------------------------------------*\
     TYPOGRAPHY
@@ -21,4 +22,8 @@ body {
     font-weight: bold;
     text-transform: lowercase;
     margin-bottom: $space;
+
+    @include media('<desktop','landscape') {
+        margin-bottom: 0;
+    }
 }
