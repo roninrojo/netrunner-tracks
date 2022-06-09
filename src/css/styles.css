@@ -156,7 +156,8 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: calc((100vh - 3rem) / 5);
+  margin-top: 5vh;
+  height: calc((100vh - 3rem) / 5 - 1vh);
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks-clicks {
@@ -171,7 +172,7 @@
 .tracks-clicks__row {
   display: flex;
   gap: 3vw;
-  margin-bottom: 1rem;
+  margin-top: 0;
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks-clicks__row {
@@ -190,6 +191,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .click-animation {
   width: 20vw;
@@ -253,7 +255,7 @@
 .tracks-damage {
   padding: 1rem;
   width: 100%;
-  height: calc((100vh - 3rem) / 5);
+  height: calc((100vh - 3rem) / 5 - 1vh);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -275,6 +277,14 @@
   -webkit-appearance: textfield;
           appearance: textfield;
   -moz-appearance: textfield;
+  font-weight: bold;
+}
+.tracks-credits input:focus-visible,
+.tracks-memory input:focus-visible,
+.tracks-tags input:focus-visible,
+.tracks-damage input:focus-visible {
+  outline: 0;
+  border: 0;
 }
 .tracks-credits__row,
 .tracks-memory__row,
@@ -380,6 +390,12 @@ body {
   width: 100vw;
   padding: 0.5rem;
   position: relative;
+}
+
+.menu-button {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .menu {

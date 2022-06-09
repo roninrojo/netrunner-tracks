@@ -56,7 +56,9 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: calc((100vh - $gap * 6) / 5);
+    // Distancia para el menu
+    margin-top: $app-margin-top;
+    height: $click-height;
 
     @include media('<desktop','landscape') {
         flex-direction: row;
@@ -70,7 +72,7 @@
     &__row {
         display: flex;
         gap: 3vw;
-        margin-bottom: $space;
+        margin-top: 0;
         
 
         @include media('<desktop','landscape') {
@@ -90,6 +92,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
 
     &-animation {
         width: 20vw;
@@ -159,7 +163,8 @@
  {
     padding: $space;
     width: 100%;
-    height: calc((100vh - $gap * 6) / 5);
+    // height: calc(((100vh - $gap * 6) - $click-height - 6vh) / 4 );
+    height: $click-height;
     
     display: flex;
     flex-direction: column;
@@ -174,6 +179,11 @@
     input {
         appearance: textfield;
         -moz-appearance: textfield;
+        font-weight: bold;
+        &:focus-visible {
+            outline: 0;
+            border: 0;
+        }
     }
 
     &__row {
