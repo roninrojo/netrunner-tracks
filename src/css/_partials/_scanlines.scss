@@ -16,3 +16,26 @@
         // background-size: 100% 4px;
         pointer-events: none;
 }
+
+.scanline {
+        position: absolute;
+        width: 100vw;
+        height: 3px;
+        background-color: rgba(0, 0, 0, 0.069);
+        box-shadow: 0 0 10px rgba(0,0,0,.5);
+        bottom: -3px;
+        animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+        0% {
+                transform: translateY(0);
+        }
+        100% {
+                transform: translateY(-100vh);
+        }
+}
+
+
+
+

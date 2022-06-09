@@ -7,13 +7,21 @@
 * Colors, sizes, typos, etc.
 */
 
+// Fonts
+$font-family: 'Inconsolata', 'Courier New', Courier, monospace;
+$font-big: 2em;
+$font-normal: 1em;
 
 // Colors
+$font-color: #fff;
 $bg: radial-gradient(rgba(65, 105, 145, 0.75), black 120%);
 $lightblue: #cefbff;
+$hudwhite: rgba(255, 255, 255, .1);
 
 // Mesures
 $space: 1rem;
+$space--small: calc($space / 2);
+$gap: $space--small;
 
 // Border Radius
 $bdr: .2rem;

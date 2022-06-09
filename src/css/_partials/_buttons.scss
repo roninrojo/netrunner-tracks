@@ -10,12 +10,34 @@
     cursor: pointer;
 
     &:active {
-        @include box-shadow;
+        background-color: $lightblue;
+        color: #000;
     }
 
+    
     &--tracks {
-        background-color: rgba(255, 255, 255, .1);
+        background-color: $hudwhite;
         border-radius: $bdr;
         width: max-content;
+    }
+    
+    &--reset {
+        position: absolute;
+        right: $space;
+        border-radius: 0;
+
+        --aug-clip-tl1: initial;
+        --aug-tl1: 5px;
+    }
+
+    &--amount {
+        height: calc((100vh / 4) / 3);
+        font-size: 1.5em;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 $space;
+
+        --aug-clip-br1: initial;
+        --aug-br1: 10px;
     }
 }
