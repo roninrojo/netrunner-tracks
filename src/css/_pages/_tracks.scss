@@ -31,15 +31,12 @@
 .tracks-tags { grid-area: tags; }
 .tracks-damage { grid-area: damage; }
 
+// Augmented-ui
 .tracks-clicks,
 .tracks-credits,
 .tracks-memory,
 .tracks-tags,
 .tracks-damage {
-    // border: 2px solid $hudwhite;
-    // border-radius: $bdr;
-    padding: 1rem;
-
     --aug-border: initial;
     --aug-border-bg: rgba(255, 255, 255, .1);
     --aug-border-all: 2px;
@@ -50,26 +47,16 @@
     --aug-tr1: 20px;
     --aug-br1: 20px;
     --aug-bl1: 20px;
-
-    width: 100%;
-    height: calc((100vh - $gap * 6) / 5);
-
-    @include media('<desktop','landscape') {
-        width: calc(100vw - (100vw/3));
-        height: calc(100vh/4);
-    }
-
-    input {
-        appearance: textfield;
-        -moz-appearance: textfield;
-    }
 }
 
 // Clicks
 .tracks-clicks {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    height: calc((100vh - $gap * 6) / 5);
 
     @include media('<desktop','landscape') {
         flex-direction: row;
@@ -170,10 +157,24 @@
 .tracks-tags,
 .tracks-damage
  {
+    padding: $space;
+    width: 100%;
+    height: calc((100vh - $gap * 6) / 5);
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+
+    @include media('<desktop','landscape') {
+        width: calc(100vw - (100vw / 3));
+        height: calc(100vh / 4);
+    }
+
+    input {
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
 
     &__row {
         display: flex;

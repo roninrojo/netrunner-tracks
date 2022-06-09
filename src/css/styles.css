@@ -138,7 +138,6 @@
 .tracks-memory,
 .tracks-tags,
 .tracks-damage {
-  padding: 1rem;
   --aug-border: initial;
   --aug-border-bg: rgba(255, 255, 255, .1);
   --aug-border-all: 2px;
@@ -149,33 +148,15 @@
   --aug-tr1: 20px;
   --aug-br1: 20px;
   --aug-bl1: 20px;
-  width: 100%;
-  height: calc((100vh - 3rem) / 5);
-}
-@media (max-width: 1023px) and (orientation: landscape) {
-  .tracks-clicks,
-.tracks-credits,
-.tracks-memory,
-.tracks-tags,
-.tracks-damage {
-    width: 66.6666666667vw;
-    height: 25vh;
-  }
-}
-.tracks-clicks input,
-.tracks-credits input,
-.tracks-memory input,
-.tracks-tags input,
-.tracks-damage input {
-  -webkit-appearance: textfield;
-          appearance: textfield;
-  -moz-appearance: textfield;
 }
 
 .tracks-clicks {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  height: calc((100vh - 3rem) / 5);
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks-clicks {
@@ -270,10 +251,30 @@
 .tracks-memory,
 .tracks-tags,
 .tracks-damage {
+  padding: 1rem;
+  width: 100%;
+  height: calc((100vh - 3rem) / 5);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+}
+@media (max-width: 1023px) and (orientation: landscape) {
+  .tracks-credits,
+.tracks-memory,
+.tracks-tags,
+.tracks-damage {
+    width: 66.6666666667vw;
+    height: 25vh;
+  }
+}
+.tracks-credits input,
+.tracks-memory input,
+.tracks-tags input,
+.tracks-damage input {
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
 }
 .tracks-credits__row,
 .tracks-memory__row,

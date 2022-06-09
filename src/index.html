@@ -9,7 +9,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="css/styles.css">
     <title>Netrunner Tracks</title>
@@ -50,16 +49,17 @@
                 <span class="section-title">> credits</span>
                 <div class="tracks-credits__row">
                     <svg class="svg-credit" viewBox="0 0 32595 32595" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path class="svg-credit__fill" d="m16296.3.006 8549.41 8549.41v15493.8l-8549.41 8549.41-8549.41-8549.41v-15493.8L16296.3.006Zm-6059.93 23027.7 6059.93 6059.93v-12709.5l6059.92-6059.92V9564.82L16296.3 3504.89l-6059.93 6059.93v13462.9Z" style="fill-rule:nonzero"/></svg>
+                    
                     <input id="credits-number" type="number" min="0" value="0" class="tracks-credits__amount" readonly>
-                    <span id="add-credit-button" class="button button--tracks button--amount" data-augmented-ui>+</span><span id="substract-credit-button" class="button button--tracks button--amount" data-augmented-ui>-</span>
+                    <span id="add-credits-button" class="button button--tracks button--amount" data-augmented-ui>+</span><span id="substract-credits-button" class="button button--tracks button--amount" data-augmented-ui>-</span>
                 </div>
                 <span id="reset-credits" class="button--reset button button--tracks" data-augmented-ui>_Reset</span>
             </div>
             <div class="tracks-memory" data-augmented-ui="tl-2-clip-x">
-                <span class="section-title">> memory</span>
+                <span class="section-title">> memory units</span>
                 <div class="tracks-memory__row">
                     <svg class="svg-memory" viewBox="0 0 5867 5867" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2"><path class="svg-memory__fill" d="M731.122 1344.32h4404.42v2694.54h-790.083l-678.057 483.484H731.122v-3178.02Zm4103.72 477.588v-176.885h-383.25v176.885h383.25Zm-383.25 1261.78v182.781h383.25v-182.781h-383.25Zm0-483.484v182.781h383.25v-182.781h-383.25Zm0-477.588v182.781h383.25v-182.781h-383.25Zm-878.526 2099.03 577.823-406.835v-2169.78h-3119.06v2576.62h2541.24Zm878.526-660.369v182.781h383.25v-182.781h-383.25Z" style="fill-rule:nonzero"/></svg>
-                    <input id="memory-number" type="number" min="0" value="0" class="tracks-memory__amount" readonly>
+                    <input id="memory-number" type="number" min="0" value="4" class="tracks-memory__amount" readonly>
                     <span id="add-memory-button" class="button button--tracks button--amount" data-augmented-ui>+</span><span id="substract-memory-button" class="button button--tracks button--amount" data-augmented-ui>-</span>
                 </div>
                 <span id="reset-memory" class="button--reset button button--tracks" data-augmented-ui>_Reset</span>
@@ -74,7 +74,19 @@
                 </div>
                 <span id="reset-tags" class="button--reset button button--tracks" data-augmented-ui>_Reset</span>
             </div>
-            <div class="tracks-damage" data-augmented-ui="tl-2-clip-x">tags</div>
+            <div class="tracks-damage" data-augmented-ui="tl-2-clip-x">
+                <span class="section-title">> brain damage</span>
+                <div class="tracks-damage__row">
+                    <svg class="svg-damage"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.255 491.256" xml:space="preserve">
+                        <path class="svg-damage__fill" d="m109.041 134.176-40.443-24.312 59.576-.8V56.226L41.051 90.077l-17.772 30.618 58.812 25.725H7.357C3.672 146.419 0 207.677 0 207.677h71.049l37.992-73.501zM53.662 222.98H1.6l76.578 63.448 42.878-17.155zm346.932 52.063 28.19 13.486-40.427-4.904 14.702-37.974 88.196-6.118-36.758-62.479-68.616 50.217-64.913-19.594-64.925 37.974-73.501-2.452-3.684 33.081 49.003 18.988-4.893 18.998-37.973-12.261-61.259-25.725-24.504 13.476v41.652l37.979 25.725h117.607l22.046-48.997-25.106-31.388 70.437 3.211-31.388 29.857 36.292 1.379 46.557-17.761 32.906 28.329 72.76-.433 6.212-68.497-78.797 2.615zM219.167 379.18l66.326 69.221 36.759-17.142-56.528-63.103s-37.985 11.024-46.557 11.024z"/>
+                        <path class="svg-damage__fill" d="m275.031 356.678 36.748 33.068 82.837-18.531v-47.619H288.04zm27.873-224.715-2.756 54.882 20.855 7.772 31.844-47.783 3.655-91.064-61.258-9.891-45.944 69.304zm53.598 36.503v33.075h34.307l61.234-51.455-61.234-64.913-17.153 16.237 2.44 41.95z"/>
+                        <path class="svg-damage__fill" d="m130.013 143.36-11.181 21.439 16.225 12.255-5.202 18.363-30.623-10.399-21.44 37.962 50.381 36.147 37.21-14.62 13.908-42.966 14.274 6.136v13.476l75.954-4.904 12.249-34.296v-37.951l-58.8-18.415 19.6-27.85 23.891-37.687-37.226-16.535-79.001-.66-.935 75.691 63.255 37.676-18.987 8.577z"/>
+                    </svg>
+                    <input id="damage-number" type="number" min="0" value="0" class="tracks-damage__amount" readonly>
+                    <span id="add-damage-button" class="button button--tracks button--amount" data-augmented-ui>+</span><span id="substract-damage-button" class="button button--tracks button--amount" data-augmented-ui>-</span>
+                </div>
+                <span id="reset-damage" class="button--reset button button--tracks" data-augmented-ui>_Reset</span>
+            </div>
         </section>
         <section class="player-aid">
             <span>close button</span>
