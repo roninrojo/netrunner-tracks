@@ -157,7 +157,7 @@
   align-items: flex-start;
   width: 100%;
   margin-top: 5vh;
-  height: calc((100vh - 3rem) / 5 - 1vh);
+  height: calc((95vh - 3rem) / 5);
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks-clicks {
@@ -255,7 +255,7 @@
 .tracks-damage {
   padding: 1rem;
   width: 100%;
-  height: calc((100vh - 3rem) / 5 - 1vh);
+  height: calc((95vh - 3rem) / 5);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -388,20 +388,50 @@ body {
 
 .container {
   width: 100vw;
+  height: 95vh;
   padding: 0.5rem;
   position: relative;
 }
 
-.menu-button {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .menu {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  --aug-border: initial;
+  --aug-clip-br1: initial;
+  --aug-clip-bl1: initial;
+  --aug-border-all: 2px;
+  --aug-border-bg: rgba(255, 255, 255, .1);
+}
+.menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu ul > li {
+  margin: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.menu ul > li.selected {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sections section {
+  display: none;
+}
+.sections section.show {
+  display: grid;
 }
 
 .player-aid {

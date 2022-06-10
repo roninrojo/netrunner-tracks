@@ -23,7 +23,7 @@ $app-margin-top: 5vh;
 $space: 1rem;
 $space--small: calc($space / 2);
 $gap: $space--small;
-$click-height: calc((((100vh - $gap * 6) ) / 5) - ($app-margin-top / 5));
+$click-height: calc(((100vh - $app-margin-top) - $gap * 6) / 5);
 
 // Border Radius
 $bdr: .2rem;

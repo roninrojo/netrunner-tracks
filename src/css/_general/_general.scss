@@ -37,20 +37,58 @@ body {
 
 .container {
 	width: 100vw;
+	height: calc(100vh - $app-margin-top);
 	padding: $gap;
 	position: relative;
 }
 
-.menu-button {
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-
 .menu {
 	position: absolute;
-	left: 0;
+	left: 50%;
 	top: 0;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+
+	--aug-border: initial;
+	--aug-clip-br1: initial;
+	--aug-clip-bl1: initial;
+	--aug-border-all: 2px;
+	--aug-border-bg: rgba(255, 255, 255, .1);
+
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 100%;
+		flex-wrap: nowrap;
+		gap: 1rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+	}
+	
+	ul > li {
+		margin: 0;
+		padding: .5rem;
+		cursor: pointer;
+
+		&.selected {
+			background-color: $hudwhite;
+		}
+	}
+}
+
+.sections {
+	section {
+		display: none;
+
+		&.show {
+			display: grid;
+		}
+	}
 }
 
 .player-aid {

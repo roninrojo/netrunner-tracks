@@ -4,18 +4,21 @@
 const defaultClick = document.querySelector('span[data-number]');
 const clicksTrack = document.querySelector(".tracks-clicks__row");
 const clicks = document.querySelectorAll('span[data-number]');
-// const resetClicks = document.querySelector("#reset-clicks");
 
 // Tracks
 const resetTracks = document.querySelectorAll(".button--reset");
 const trackButtons = document.querySelectorAll("[id$='-button']");
 const trackInputs = document.querySelectorAll("input[id$='-number']");
 
+//Menu
+const nav = document.querySelector(".menu");
+
 // Evenets
 document.addEventListener('DOMContentLoaded', () => {
     clicksTrack.addEventListener('click', addClassSelected);
     resetTracks.forEach(item => item.addEventListener('click', resetTrack));
     trackButtons.forEach(item => item.addEventListener('click', buttonActions));
+    nav.addEventListener('click', showTab);
 });
 
 // Functions
@@ -107,4 +110,18 @@ function buttonActions(e) {
             }
         }
     });
+}
+
+function showTab(e) {
+    
+    const btns = document.querySelectorAll('[data-menubtn]');
+    const tabs = document.querySelectorAll('[data-tab]');
+    const tab = document.querySelector(`[data-tab='${e.target.dataset.menubtn}'`)
+
+    tabs.forEach( tab => tab.classList.remove('show'));
+    btns.forEach( btn => btn.classList.remove('selected'));
+    
+    e.target.classList.add('selected');
+    tab.classList.add('show');
+    
 }
