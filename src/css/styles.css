@@ -439,6 +439,11 @@ body {
   padding: 0.5rem;
 }
 
+.credits {
+  display: none;
+  margin-top: 5vh;
+}
+
 /*--------------------------------------------------------*\
     STYLES
 \*--------------------------------------------------------*//*# sourceMappingURL=styles.css.map */
