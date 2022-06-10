@@ -28,8 +28,15 @@
         </nav>
 
         <div class="sections">
-            <section class="choose-id" data-tab="1"></section>
-            <section class="tracks show" data-tab="2">
+            <section class="choose-id" data-tab="1">
+                <div class="runner-id">
+                    <span>I'm a Runner</span>
+                </div>
+                <div class="corp-id">
+                    <span>I'm a Runner</span>
+                </div>
+            </section>
+            <section class="tracks" data-tab="2">
                 <div class="tracks-clicks" data-augmented-ui="tl-2-clip-x">
                     <span class="section-title">> Clicks</span>
                     <div class="tracks-clicks__row">
@@ -99,11 +106,10 @@
                     <span id="reset-damage" class="button--reset button button--tracks" data-augmented-ui>_Reset</span>
                 </div>
             </section>
-            <section class="player-aid" data-tab="3">
-                <span>close button</span>
-                <ul>
-                    <li>Draw a card</li>
-                    <li>etc.</li>
+            <section class="player-aid show" data-tab="3">
+                <ul class="runner-actions">
+                    <li data-augmented-ui="tl-clip br-clip-x border">Gain 1 <img id="credit-svg" class="svg--text" src="/src/img/NISEI_CREDIT.svg"></li>
+                    <li data-augmented-ui="tl-clip br-clip-x border">Draw a card</li>
                 </ul>
             </section>
             <section class="credits" data-tab="4">

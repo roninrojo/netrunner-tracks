@@ -11,6 +11,11 @@
 .svg-click__fill, .svg-credit__fill, .svg-memory__fill, .svg-tag__fill, .svg-damage__fill {
   fill: rgba(255, 255, 255, 0.75);
 }
+.svg--text {
+  height: 1em;
+  vertical-align: middle;
+  filter: invert(99%) sepia(100%) saturate(2%) hue-rotate(4deg) brightness(106%) contrast(100%);
+}
 
 .crtlines::before {
   content: " ";
@@ -328,6 +333,25 @@
     transform: rotate(360deg);
   }
 }
+.player-aid {
+  display: none;
+  margin-top: 5vh;
+  padding: 0.5rem;
+}
+.player-aid .runner-actions {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.player-aid .runner-actions li {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  --aug-border-all: 1px;
+  --aug-border-bg: rgba(255, 255, 255, .1);
+}
+
 /*--------------------------------------------------------*\
     TYPOGRAPHY
 \*--------------------------------------------------------*/
@@ -432,11 +456,6 @@ body {
 }
 .sections section.show {
   display: grid;
-}
-
-.player-aid {
-  display: none;
-  padding: 0.5rem;
 }
 
 .credits {

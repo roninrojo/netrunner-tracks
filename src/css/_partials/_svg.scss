@@ -1,4 +1,4 @@
-@use "../_modules/vars";
+@use "../_modules/vars" as *;
 .svg {
     &-click,
     &-credit,
@@ -10,5 +10,11 @@
         &__fill {
             fill: rgba(255, 255, 255, 0.75);
         }
+    }
+
+    &--text {
+        height: $font-size-default;
+        vertical-align: middle;
+        filter: invert(99%) sepia(100%) saturate(2%) hue-rotate(4deg) brightness(106%) contrast(100%);
     }
 }
