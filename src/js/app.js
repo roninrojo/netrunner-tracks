@@ -1,14 +1,18 @@
 // Selectors
 
 // Clicks
-const defaultClick = document.querySelector('span[data-number]');
+const defaultClick = document.querySelector("span[data-number]");
 const clicksTrack = document.querySelector(".tracks-clicks__row");
-const clicks = document.querySelectorAll('span[data-number]');
+const clicks = document.querySelectorAll("span[data-number]");
 
 // Tracks
 const resetTracks = document.querySelectorAll(".button--reset");
 const trackButtons = document.querySelectorAll("[id$='-button']");
 const trackInputs = document.querySelectorAll("input[id$='-number']");
+
+// ID
+const runnerBtn = document.querySelector(".choose-id__runner");
+const coorpBtn = document.querySelector(".choose-id__coorp");
 
 //Menu
 const nav = document.querySelector(".menu");
@@ -19,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     resetTracks.forEach(item => item.addEventListener('click', resetTrack));
     trackButtons.forEach(item => item.addEventListener('click', buttonActions));
     nav.addEventListener('click', showTab);
+    runnerBtn.addEventListener('click', chooseID);
+    coorpBtn.addEventListener('click', chooseID);
 });
 
 // Functions
@@ -118,10 +124,17 @@ function showTab(e) {
     const tabs = document.querySelectorAll('[data-tab]');
     const tab = document.querySelector(`[data-tab='${e.target.dataset.menubtn}'`)
 
-    tabs.forEach( tab => tab.classList.remove('show'));
-    btns.forEach( btn => btn.classList.remove('selected'));
+    if(tab != null) {
+        tabs.forEach( tab => tab.classList.remove('show'));
+        btns.forEach( btn => btn.classList.remove('selected'));
+        
+        e.target.classList.add('selected');
+        tab.classList.add('show');
+    }
     
-    e.target.classList.add('selected');
-    tab.classList.add('show');
+}
+
+function chooseID(e) {
+    console.log(e.target);
     
 }

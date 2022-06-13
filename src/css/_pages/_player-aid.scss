@@ -6,19 +6,24 @@
     padding: $gap;
 	
 
-    .runner-actions {
+    .player-actions {
         display: flex;
         flex-direction: column;
-        list-style: none;
         margin: 0;
         padding: 0;
 
         li {
-            padding: $gap*2;
+            padding: $gap * 2;
             margin-bottom: $gap;
 
             --aug-border-all: 1px;
             --aug-border-bg: rgba(255, 255, 255, .1);
         }
+
+        &--coorp {
+            // App initial value
+            display: none;
+        }
     }
 }
+

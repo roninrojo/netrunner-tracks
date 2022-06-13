@@ -2,22 +2,22 @@
 @use "../_mixins/include-mediaa" as *;
 
 *, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-    height: 100vh;
-    width: 100vw;
-    font-size: 100%;
+	height: 100vh;
+	width: 100vw;
+	font-size: 100%;
 }
 
 /* Small screens (default) */
 
 /* Medium screens (640px) */
 @media (min-width: 40rem) { 
-  html { font-size: 112%; }
+	html { font-size: 112%; }
 }
 
 /* Large screens (1024px) */
@@ -33,6 +33,12 @@ body {
 	position: relative;
 	padding: 0;
 	margin: 0;
+
+	@include media('>desktop') {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .container {
@@ -40,44 +46,10 @@ body {
 	height: calc(100vh - $app-margin-top);
 	padding: $gap;
 	position: relative;
-}
 
-.menu {
-	position: absolute;
-	left: 50%;
-	top: 0;
-	transform: translateX(-50%);
-	display: flex;
-	justify-content: center;
-	width: 100vw;
-
-	--aug-border: initial;
-	--aug-clip-br1: initial;
-	--aug-clip-bl1: initial;
-	--aug-border-all: 2px;
-	--aug-border-bg: rgba(255, 255, 255, .1);
-
-	ul {
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		width: 100%;
-		flex-wrap: nowrap;
-		gap: 1rem;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-
-	}
-	
-	ul > li {
-		margin: 0;
-		padding: .5rem;
-		cursor: pointer;
-
-		&.selected {
-			background-color: $hudwhite;
-		}
+	@include media('>desktop') {
+		max-width: 768px;
+		max-height: 1024px;
 	}
 }
 

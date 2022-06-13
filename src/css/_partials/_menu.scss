@@ -1,0 +1,47 @@
+@use "../_modules/vars" as *;
+@use "../_mixins/include-mediaa" as *;
+
+.menu {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+
+	@include media('>desktop') {
+		max-width: 768px;
+	}
+
+	--aug-border: initial;
+	--aug-clip-br1: initial;
+	--aug-clip-bl1: initial;
+	--aug-border-all: 2px;
+	--aug-border-bg: rgba(255, 255, 255, .1);
+
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 100%;
+		flex-wrap: nowrap;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+	}
+	
+	ul > li {
+		margin: 0;
+		padding: .5rem;
+		cursor: pointer;
+        width: 100%;
+        font-size: 0.9em;
+        text-align: center;
+
+		&.selected {
+			background-color: $hudwhite;
+		}
+	}
+}
