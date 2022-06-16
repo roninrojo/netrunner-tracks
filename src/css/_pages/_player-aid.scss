@@ -7,10 +7,12 @@
 	
 
     .player-actions {
-        display: flex;
+        display: none;
         flex-direction: column;
         margin: 0;
         padding: 0;
+
+        &.show { display: flex;}
 
         li {
             padding: $gap * 2;

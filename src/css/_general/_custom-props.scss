@@ -1,0 +1,13 @@
+@use "../_modules/vars" as *;
+
+body.coorp-theme {
+    --bg-theme: #{$bg-coorp};
+    --lightcolor: #{$lightblue};
+    --hudcolor: #{$hudwhite};
+}
+
+body.runner-theme {
+    --bg-theme: #{$bg-runner};
+    --lightcolor: #{$lightred};
+    --hudcolor: #{$hudred};
+}

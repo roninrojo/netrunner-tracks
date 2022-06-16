@@ -1,5 +1,6 @@
 @use "../_modules/vars" as *;
 @use "../_mixins/include-mediaa" as *;
+@use "../_general/custom-props" as *;
 
 .menu {
 	position: absolute;

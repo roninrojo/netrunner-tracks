@@ -8,15 +8,16 @@
     padding: .2rem;
     width: max-content;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 
     &:active {
-        background-color: $lightblue;
+        background-color: var(--lightcolor);
         color: #000;
     }
 
     
     &--tracks {
-        background-color: $hudwhite;
+        background-color: var(--hudcolor);
         border-radius: $bdr;
         width: max-content;
     }

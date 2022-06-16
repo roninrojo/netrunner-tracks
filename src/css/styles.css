@@ -5,6 +5,108 @@
 /**
 * Colors, sizes, typos, etc.
 */
+body.coorp-theme {
+  --bg-theme: radial-gradient(rgba(65, 105, 145, 0.75), black 120%);
+  --lightcolor: #cefbff;
+  --hudcolor: rgba(255, 255, 255, 0.1);
+}
+
+body.runner-theme {
+  --bg-theme: radial-gradient(rgba(115, 34, 34, 0.75), black 120%);
+  --lightcolor: #ff006a;
+  --hudcolor: rgba(255, 0, 0, 0.1);
+}
+
+/*--------------------------------------------------------*\
+    TYPOGRAPHY
+\*--------------------------------------------------------*/
+/**
+* Definición de tipografía y tamaños
+*/
+body {
+  font-family: "Inconsolata", "Courier New", Courier, monospace;
+  color: #fff;
+  text-shadow: 0 0 5px #C8C8C8;
+}
+
+.section-title {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+}
+@media (max-width: 1023px) and (orientation: landscape) {
+  .section-title {
+    margin-bottom: 0;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  font-size: 100%;
+}
+
+/* Small screens (default) */
+/* Medium screens (640px) */
+@media (min-width: 40rem) {
+  html {
+    font-size: 112%;
+  }
+}
+/* Large screens (1024px) */
+@media (min-width: 64rem) {
+  html {
+    font-size: 120%;
+  }
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  background-image: var(--bg-theme);
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 1025px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.container {
+  width: 100vw;
+  height: 95vh;
+  padding: 0.5rem;
+  position: relative;
+}
+@media (min-width: 1025px) {
+  .container {
+    max-width: 768px;
+    max-height: 1024px;
+  }
+}
+
+.sections section {
+  display: none;
+}
+.sections section.show {
+  display: grid;
+}
+
+.credits {
+  display: none;
+  margin-top: 5vh;
+}
+
 .svg-click, .svg-credit, .svg-memory, .svg-tag, .svg-damage {
   width: 15vw;
 }
@@ -73,13 +175,14 @@
   width: -moz-max-content;
   width: max-content;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .button:active {
-  background-color: #cefbff;
+  background-color: var(--lightcolor);
   color: #000;
 }
 .button--tracks {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--hudcolor);
   border-radius: 0.2rem;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -260,7 +363,7 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 3px solid;
-  border-color: #cefbff transparent;
+  border-color: var(--lightcolor) transparent;
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .click-animation:after {
@@ -290,9 +393,20 @@
   display: none;
 }
 .click-number {
+  display: none;
   font-size: 2em;
   font-weight: bold;
   text-shadow: 0 0 10px #fff;
+}
+.click-number.show {
+  display: block;
+}
+.click-text {
+  display: none;
+  text-align: center;
+}
+.click-text.show {
+  display: block;
 }
 
 .tracks-credits,
@@ -351,7 +465,7 @@
   line-height: 1;
   font-size: 2em;
   width: 33.3333333333vw;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--hudcolor);
   border: 0;
   color: #fff;
   font-family: "Inconsolata", "Courier New", Courier, monospace;
@@ -380,10 +494,13 @@
   padding: 0.5rem;
 }
 .player-aid .player-actions {
-  display: flex;
+  display: none;
   flex-direction: column;
   margin: 0;
   padding: 0;
+}
+.player-aid .player-actions.show {
+  display: flex;
 }
 .player-aid .player-actions li {
   padding: 1rem;
@@ -408,105 +525,16 @@
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   --aug-border-all: 1px;
   --aug-border-bg: rgba(255, 255, 255, .1);
 }
 .choose-id__runner:active, .choose-id__coorp:active {
-  background-color: #cefbff;
+  background-color: var(--lightcolor);
   color: #000;
 }
 .choose-id__runner {
   margin-bottom: 0.5rem;
-}
-
-/*--------------------------------------------------------*\
-    TYPOGRAPHY
-\*--------------------------------------------------------*/
-/**
-* Definición de tipografía y tamaños
-*/
-body {
-  font-family: "Inconsolata", "Courier New", Courier, monospace;
-  color: #fff;
-  text-shadow: 0 0 5px #C8C8C8;
-}
-
-.section-title {
-  display: inline-block;
-  font-size: 0.9em;
-  font-weight: bold;
-  text-transform: lowercase;
-  margin-bottom: 1rem;
-}
-@media (max-width: 1023px) and (orientation: landscape) {
-  .section-title {
-    margin-bottom: 0;
-  }
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-html {
-  height: 100vh;
-  width: 100vw;
-  font-size: 100%;
-}
-
-/* Small screens (default) */
-/* Medium screens (640px) */
-@media (min-width: 40rem) {
-  html {
-    font-size: 112%;
-  }
-}
-/* Large screens (1024px) */
-@media (min-width: 64rem) {
-  html {
-    font-size: 120%;
-  }
-}
-body {
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  background-image: radial-gradient(rgba(65, 105, 145, 0.75), black 120%);
-  position: relative;
-  padding: 0;
-  margin: 0;
-}
-@media (min-width: 1025px) {
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.container {
-  width: 100vw;
-  height: 95vh;
-  padding: 0.5rem;
-  position: relative;
-}
-@media (min-width: 1025px) {
-  .container {
-    max-width: 768px;
-    max-height: 1024px;
-  }
-}
-
-.sections section {
-  display: none;
-}
-.sections section.show {
-  display: grid;
-}
-
-.credits {
-  display: none;
-  margin-top: 5vh;
 }
 
 /*--------------------------------------------------------*\

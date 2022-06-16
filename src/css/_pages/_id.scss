@@ -14,12 +14,13 @@
         text-transform: uppercase;
         font-weight: bold;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
     
         --aug-border-all: 1px;
         --aug-border-bg: rgba(255, 255, 255, .1);
     
         &:active {
-            background-color: $lightblue;
+            background-color: var(--lightcolor);
             color: #000;
         }
     }
