@@ -122,6 +122,10 @@ function showTab(e) {
 function chooseID(e) {
     const playerOptopn = e.currentTarget.dataset.option;
     const playerAids = document.querySelectorAll("[data-aid]");
+    
+    // trigger del menu tracks
+    goToTracks();
+
     // const click1 = document.querySelector('.click[data-number="1"]');
     
     let playerAidHide = null;
@@ -160,4 +164,15 @@ export {
     buttonActions,
     showTab,
     chooseID
+}
+
+// Tracks Menu Button Trigger
+function goToTracks() {
+  const event = new MouseEvent('click', {
+    view: window,
+    bubbles: true,
+    cancelable: true
+  });
+  const element = document.querySelector("[data-menubtn='2']");
+  element.dispatchEvent(event);
 }
