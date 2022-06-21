@@ -1,0 +1,15 @@
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+
+    &--inline-block {
+        display: inline-block;
+    }
+
+    &--flex {
+        display: flex;
+    }
+}

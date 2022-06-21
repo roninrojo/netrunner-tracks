@@ -1,4 +1,18 @@
 @charset "UTF-8";
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+.show--inline-block {
+  display: inline-block;
+}
+.show--flex {
+  display: flex;
+}
+
 /*--------------------------------------------------------*\
     VARIABLES
 \*--------------------------------------------------------*/
@@ -389,24 +403,13 @@ body {
   display: flex;
   position: absolute;
 }
-.click.selected svg {
-  display: none;
-}
 .click-number {
-  display: none;
   font-size: 2em;
   font-weight: bold;
   text-shadow: 0 0 10px #fff;
 }
-.click-number.show {
-  display: block;
-}
 .click-text {
-  display: none;
   text-align: center;
-}
-.click-text.show {
-  display: block;
 }
 
 .tracks-credits,

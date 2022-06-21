@@ -1,26 +1,36 @@
 // Selectors
 import {
+    svgClick1,
+    textClick1,
     resetTracks,
     clicks,
     trackInputs,
-    bodyTag
+    bodyTag,
+    lastNumber
 } from "./selectors.js";
+
+import { player } from "./app.js";
 
 // Functions
 const limpiarHTML = (nodo) => { while (nodo.firstChild) nodo.firstChild.remove() };
 
 
 // Add class 'selected' to a touched "click"
-function addClassSelected(e) {
+function changeClick(e) {
     
     const currentClick = e.target.closest('.click');
     
     if (currentClick != null) {
-        const currentNumber = currentClick.dataset.number;  
+        const currentNumber = currentClick.dataset.number;
+        
+        // Filtro todos los click que no son el elegido
         const arrClick = (Object.values(clicks)).filter(item => item.dataset.number != currentNumber);
         
+
+        // Los recorro, muestro el svg si había número lo borro
         arrClick.forEach(item => {
             item.classList.remove('selected');
+            item.querySelector('svg').classList.remove('hide');
             const lastNumber = item.querySelector('.click-number');
             if (lastNumber) item.removeChild(lastNumber);
         });
@@ -28,8 +38,19 @@ function addClassSelected(e) {
         currentClick.classList.add('selected');
 
         // Si el ID es coorp y current click = 1 click-number no se debería crear
-        const lastNumber = document.querySelector('.click-number');
-        if (!lastNumber) {
+        if (player.type === 'coorp' && currentNumber != 1) {
+            svgClick.classList.add('hide');
+        } else {
+            textClick.classList.add('hide');
+            textClick.classList.remove('show');
+        }
+        
+        if (lastNumber === null && currentNumber != 1 && player.type === 'coorp') {
+            const numClick = document.createElement('span');
+            numClick.classList.add('click-number','show');
+            numClick.textContent = currentNumber;
+            currentClick.appendChild(numClick);
+        } else if (!lastNumber && player.type === 'runner') {
             const numClick = document.createElement('span');
             numClick.classList.add('click-number','show');
             numClick.textContent = currentNumber;
@@ -120,7 +141,20 @@ function showTab(e) {
 
 // ID player selection
 function chooseID(e) {
-    const playerOptopn = e.currentTarget.dataset.option;
+    const playerOption = e.currentTarget.dataset.option;
+    player.changeType(playerOption);
+
+    if (player.type === 'runner') {
+        
+        textClick1.classList.toggle('hide');
+        if(lastNumber) lastNumber.classList.toggle('hide')
+    }
+
+    if (player.type === 'coorp') {
+
+        svgClick1.classList.toggle('hide');
+    }
+
     const playerAids = document.querySelectorAll("[data-aid]");
     
     // trigger del menu tracks
@@ -132,7 +166,7 @@ function chooseID(e) {
     let playerAidShow = null;
 
     playerAids.forEach( list => {
-        (list.dataset.aid === playerOptopn) ? playerAidShow = list : playerAidHide = list;
+        (list.dataset.aid === playerOption) ? playerAidShow = list : playerAidHide = list;
     });
     
     // Player Aid Show
@@ -140,7 +174,7 @@ function chooseID(e) {
     playerAidHide.classList.remove("show");
 
     // Swith CSS theme
-    switch (playerOptopn) {
+    switch (player.type) {
         case 'runner':
             bodyTag.classList.remove('coorp-theme')
             bodyTag.classList.add('runner-theme')
@@ -156,16 +190,6 @@ function chooseID(e) {
     }
 }
 
-export {
-    limpiarHTML,
-    addClassSelected,
-    resetTrack,
-    resetClick,
-    buttonActions,
-    showTab,
-    chooseID
-}
-
 // Tracks Menu Button Trigger
 function goToTracks() {
   const event = new MouseEvent('click', {
@@ -175,4 +199,14 @@ function goToTracks() {
   });
   const element = document.querySelector("[data-menubtn='2']");
   element.dispatchEvent(event);
+}
+
+export {
+    limpiarHTML,
+    changeClick,
+    resetTrack,
+    resetClick,
+    buttonActions,
+    showTab,
+    chooseID
 }

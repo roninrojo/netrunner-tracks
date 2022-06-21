@@ -1,4 +1,8 @@
 // init App
-import {App} from "./clases/app.js";
+import App from "./clases/app.js";
+import Player from "./clases/player.js";
 
-const app = new App;
+const defaultPlayer = "coorp";
+
+export const player = new Player(defaultPlayer);
+const app = new App(player.type);
