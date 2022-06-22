@@ -6,7 +6,8 @@ import {
     clicks,
     trackInputs,
     bodyTag,
-    lastNumber
+    numClick1,
+    playerAids
 } from "./selectors.js";
 
 import { player } from "./app.js";
@@ -20,41 +21,54 @@ function changeClick(e) {
     
     const currentClick = e.target.closest('.click');
     
-    if (currentClick != null) {
-        const currentNumber = currentClick.dataset.number;
+    if (currentClick !== null) {
+        const currentNumber = Number(currentClick.dataset.number);
         
         // Filtro todos los click que no son el elegido
         const arrClick = (Object.values(clicks)).filter(item => item.dataset.number != currentNumber);
         
 
         // Los recorro, muestro el svg si había número lo borro
+        // [][][1][X] <- x donde hacemos click
         arrClick.forEach(item => {
             item.classList.remove('selected');
-            item.querySelector('svg').classList.remove('hide');
-            const lastNumber = item.querySelector('.click-number');
-            if (lastNumber) item.removeChild(lastNumber);
+            if(item.querySelector('svg') !== null) item.querySelector('svg').classList.remove('hide');
+            const haveNumber = item.querySelector('.click-number');
+            if (haveNumber !== null) item.removeChild(haveNumber);
         });
 
         currentClick.classList.add('selected');
 
-        // Si el ID es coorp y current click = 1 click-number no se debería crear
-        if (player.type === 'coorp' && currentNumber != 1) {
-            svgClick.classList.add('hide');
-        } else {
-            textClick.classList.add('hide');
-            textClick.classList.remove('show');
-        }
+        // 💡 Si el ID es coorp y current click = 1 click-number no se debería crear
+
+        // Coompruebo que no hay numero, si no hay lo creo para ese Click
+        // Si hacemos Click en el mismo si existe, no entra
+        const lastNumberShowed = document.querySelector('.click-number');
         
-        if (lastNumber === null && currentNumber != 1 && player.type === 'coorp') {
-            const numClick = document.createElement('span');
-            numClick.classList.add('click-number','show');
-            numClick.textContent = currentNumber;
-            currentClick.appendChild(numClick);
-        } else if (!lastNumber && player.type === 'runner') {
-            const numClick = document.createElement('span');
-            numClick.classList.add('click-number','show');
-            numClick.textContent = currentNumber;
-            currentClick.appendChild(numClick);
+        if (lastNumberShowed === null) {
+            switch (player.type) {
+                case 'coorp':
+                    if (currentNumber !== 1) {
+                        const numClick = document.createElement('span');
+                        numClick.classList.add('click-number');
+                        numClick.textContent = currentNumber;
+                        currentClick.appendChild(numClick);
+                        currentClick.querySelector("svg").classList.toggle("hide");
+                    }
+                    break;
+            
+                default:
+                    break;
+            }
+            
+            
+            // if (player.type === 'coorp' && currentNumber !== 1) {
+            // const numClick = document.createElement('span');
+            // numClick.classList.add('click-number');
+            // numClick.textContent = currentNumber;
+            // currentClick.appendChild(numClick);
+            //     currentClick.querySelector("svg").classList.toggle("hide");
+            // }    
         }
     } 
 }   
@@ -144,34 +158,23 @@ function chooseID(e) {
     const playerOption = e.currentTarget.dataset.option;
     player.changeType(playerOption);
 
+    // Menuda tontada tener estos dos if iguales...
     if (player.type === 'runner') {
-        
         textClick1.classList.toggle('hide');
-        if(lastNumber) lastNumber.classList.toggle('hide')
+        if (numClick1) numClick1.classList.toggle('hide');
+        
     }
-
+    
     if (player.type === 'coorp') {
-
-        svgClick1.classList.toggle('hide');
+        textClick1.classList.toggle('hide');
+        if (numClick1) numClick1.classList.toggle('hide');
     }
-
-    const playerAids = document.querySelectorAll("[data-aid]");
     
     // trigger del menu tracks
     goToTracks();
-
-    // const click1 = document.querySelector('.click[data-number="1"]');
     
-    let playerAidHide = null;
-    let playerAidShow = null;
-
-    playerAids.forEach( list => {
-        (list.dataset.aid === playerOption) ? playerAidShow = list : playerAidHide = list;
-    });
-    
-    // Player Aid Show
-    playerAidShow.classList.add("show");
-    playerAidHide.classList.remove("show");
+    // Se muestra el playerAid
+    showPlayerAid(player.type);
 
     // Swith CSS theme
     switch (player.type) {
@@ -201,6 +204,19 @@ function goToTracks() {
   element.dispatchEvent(event);
 }
 
+function showPlayerAid(playerType) {
+    let playerAidHide = null;
+    let playerAidShow = null;
+
+    playerAids.forEach( list => {
+        (list.dataset.aid === playerType) ? playerAidShow = list : playerAidHide = list;
+    });
+
+    // Player Aid Show
+    playerAidShow.classList.add("show");
+    playerAidHide.classList.remove("show");
+}
+
 export {
     limpiarHTML,
     changeClick,
@@ -208,5 +224,6 @@ export {
     resetClick,
     buttonActions,
     showTab,
-    chooseID
+    chooseID,
+    showPlayerAid
 }

@@ -1,5 +1,12 @@
 @use "../_modules/vars" as *;
 
+body.default-theme {
+    --bg-theme: #{$bg-default};
+    --lightcolor: #{$lightblue};
+    --hudcolor: #{$hudwhite};
+}
+
+
 body.coorp-theme {
     --bg-theme: #{$bg-coorp};
     --lightcolor: #{$lightblue};

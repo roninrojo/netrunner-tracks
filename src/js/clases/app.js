@@ -1,6 +1,7 @@
 import {
     svgClick1,
     textClick1,
+    numClick1,
     clicksTrack,
     resetTracks,
     trackButtons,
@@ -14,7 +15,8 @@ import {
     resetTrack,
     buttonActions,
     showTab,
-    chooseID
+    chooseID,
+    showPlayerAid
 } from "../functions.js"
 
 class App {
@@ -40,15 +42,17 @@ class App {
         
         switch (this.playerType) {
             case 'coorp':
-                console.log(`se inicia como ${this.playerType}`);
-                
+                svgClick1.remove();
+                // numClick1.classList.toggle("hide"); // Esta en el html al inicio
                 break;
             case 'runner':
-                console.log(`se inicia como ${this.playerType}`);
-
+                svgClick1.classList.toggle("hide");
+                textClick1.classList.toggle("hide");
             default:
                 break;
         }
+
+        showPlayerAid(this.playerType);
         // svgClick.classList.toggle("hide")
     }
 }

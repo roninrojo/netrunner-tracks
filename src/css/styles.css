@@ -4,7 +4,7 @@
 }
 
 .show {
-  display: block !important;
+  display: block;
 }
 .show--inline-block {
   display: inline-block;
@@ -19,6 +19,12 @@
 /**
 * Colors, sizes, typos, etc.
 */
+body.default-theme {
+  --bg-theme: linear-gradient(180deg, rgb(115, 34, 34) 0%, rgb(65, 105, 144) 100%);
+  --lightcolor: #cefbff;
+  --hudcolor: rgba(255, 255, 255, 0.1);
+}
+
 body.coorp-theme {
   --bg-theme: radial-gradient(rgba(65, 105, 145, 0.75), black 120%);
   --lightcolor: #cefbff;
@@ -263,16 +269,16 @@ body {
 .tracks {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: repeat(1fr, 4);
+  grid-template-rows: repeat(auto-fill, 1fr);
   gap: 0.5rem;
-  grid-template-areas: "clicks" "credits" "memory" "tags" "damage";
+  grid-template-areas: "clicks" "credits" "publi" "memory" "tags" "damage";
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks {
     grid-template-columns: 33.3333333333vw 66.6666666667vw;
     grid-template-rows: 25vh;
     gap: 1vh;
-    grid-template-areas: "clicks credits" "clicks memory" "clicks tags" "clicks damage";
+    grid-template-areas: "clicks credits" "clicks memory" "clicks tags" "clicks damage" "clicks publi";
   }
 }
 
@@ -296,11 +302,16 @@ body {
   grid-area: damage;
 }
 
+.tracks-publi {
+  grid-area: publi;
+}
+
 .tracks-clicks,
 .tracks-credits,
 .tracks-memory,
 .tracks-tags,
-.tracks-damage {
+.tracks-damage,
+.tracks-publi {
   --aug-border: initial;
   --aug-border-bg: rgba(255, 255, 255, .1);
   --aug-border-all: 2px;
@@ -415,7 +426,8 @@ body {
 .tracks-credits,
 .tracks-memory,
 .tracks-tags,
-.tracks-damage {
+.tracks-damage,
+.tracks-publi {
   padding: 1rem;
   width: 100%;
   height: calc((95vh - 3rem) / 5);
@@ -428,7 +440,8 @@ body {
   .tracks-credits,
 .tracks-memory,
 .tracks-tags,
-.tracks-damage {
+.tracks-damage,
+.tracks-publi {
     width: 66.6666666667vw;
     height: 25vh;
   }
@@ -436,7 +449,8 @@ body {
 .tracks-credits input,
 .tracks-memory input,
 .tracks-tags input,
-.tracks-damage input {
+.tracks-damage input,
+.tracks-publi input {
   -webkit-appearance: textfield;
           appearance: textfield;
   -moz-appearance: textfield;
@@ -445,14 +459,16 @@ body {
 .tracks-credits input:focus-visible,
 .tracks-memory input:focus-visible,
 .tracks-tags input:focus-visible,
-.tracks-damage input:focus-visible {
+.tracks-damage input:focus-visible,
+.tracks-publi input:focus-visible {
   outline: 0;
   border: 0;
 }
 .tracks-credits__row,
 .tracks-memory__row,
 .tracks-tags__row,
-.tracks-damage__row {
+.tracks-damage__row,
+.tracks-publi__row {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -462,7 +478,8 @@ body {
 .tracks-credits__amount,
 .tracks-memory__amount,
 .tracks-tags__amount,
-.tracks-damage__amount {
+.tracks-damage__amount,
+.tracks-publi__amount {
   height: 8.3333333333vh;
   padding: 0 1rem;
   line-height: 1;

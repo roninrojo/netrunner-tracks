@@ -4,14 +4,15 @@
 .tracks {
     display: grid;
     grid-template-columns: 100%; 
-    grid-template-rows: repeat(1fr, 4); 
+    grid-template-rows: repeat(auto-fill, 1fr); 
     gap: $gap; 
     grid-template-areas: 
         "clicks"
         "credits"
+        "publi" 
         "memory"
         "tags" 
-        "damage"; 
+        "damage";
     
     @include media('<desktop','landscape') {
         grid-template-columns: calc(100vw/3) calc(100vw - (100vw/3)); 
@@ -21,7 +22,8 @@
         "clicks credits"
         "clicks memory"
         "clicks tags"
-        "clicks damage";
+        "clicks damage"
+        "clicks publi";
     }
 }
 
@@ -30,13 +32,16 @@
 .tracks-memory { grid-area: memory; }
 .tracks-tags { grid-area: tags; }
 .tracks-damage { grid-area: damage; }
+.tracks-publi { grid-area: publi; }
 
 // Augmented-ui
 .tracks-clicks,
 .tracks-credits,
 .tracks-memory,
 .tracks-tags,
-.tracks-damage {
+.tracks-damage,
+.tracks-publi
+ {
     --aug-border: initial;
     --aug-border-bg: rgba(255, 255, 255, .1);
     --aug-border-all: 2px;
@@ -159,7 +164,8 @@
 .tracks-credits,
 .tracks-memory,
 .tracks-tags,
-.tracks-damage
+.tracks-damage,
+.tracks-publi
  {
     padding: $space;
     width: 100%;
