@@ -127,10 +127,10 @@ body {
   margin-top: 5vh;
 }
 
-.svg-click, .svg-credit, .svg-memory, .svg-tag, .svg-damage {
+.svg-click, .svg-credit, .svg-memory, .svg-tag, .svg-damage, .svg-publi {
   width: 15vw;
 }
-.svg-click__fill, .svg-credit__fill, .svg-memory__fill, .svg-tag__fill, .svg-damage__fill {
+.svg-click__fill, .svg-credit__fill, .svg-memory__fill, .svg-tag__fill, .svg-damage__fill, .svg-publi__fill {
   fill: rgba(255, 255, 255, 0.75);
 }
 .svg--text {
@@ -536,6 +536,7 @@ body {
   margin-top: 5vh;
 }
 .choose-id__runner, .choose-id__coorp {
+  position: relative;
   width: 100%;
   padding: 0.5rem;
   height: calc((95vh - 2rem) / 2);
@@ -555,6 +556,9 @@ body {
 }
 .choose-id__runner {
   margin-bottom: 0.5rem;
+}
+.choose-id__text {
+  position: relative;
 }
 
 /*--------------------------------------------------------*\

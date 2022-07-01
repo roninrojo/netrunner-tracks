@@ -5,6 +5,7 @@
     
     &__runner,
     &__coorp{
+        position: relative;
         width: 100%;
         padding: $gap;
         height: calc((100vh - $app-margin-top - $gap * 4) / 2);
@@ -28,4 +29,9 @@
     &__runner {
         margin-bottom: $gap;
     }
+    &__text {
+        position: relative;
+    }
+    
 }
+

@@ -1,16 +1,12 @@
 // Selectors
 import {
-    svgClick1,
-    textClick1,
     resetTracks,
     clicks,
     trackInputs,
-    bodyTag,
-    numClick1,
     playerAids
 } from "./selectors.js";
 
-import { player } from "./app.js";
+import { player, app } from "./app.js";
 
 // Functions
 const limpiarHTML = (nodo) => { while (nodo.firstChild) nodo.firstChild.remove() };
@@ -26,49 +22,55 @@ function changeClick(e) {
         
         // Filtro todos los click que no son el elegido
         const arrClick = (Object.values(clicks)).filter(item => item.dataset.number != currentNumber);
-        
 
-        // Los recorro, muestro el svg si había número lo borro
+        // Los recorro, muestro el svg en los demás, si había número lo borro
         // [][][1][X] <- x donde hacemos click
         arrClick.forEach(item => {
             item.classList.remove('selected');
-            if(item.querySelector('svg') !== null) item.querySelector('svg').classList.remove('hide');
+            
+            switch (player.type) {
+                case 'runner':
+                    item.querySelector('svg').classList.remove('hide');
+                    break;
+                case 'coorp':
+                    if (Number(item.dataset.number) !== 1) {
+                        item.querySelector('svg').classList.remove('hide');
+                    }
+                    break;
+                default: break;
+            }
+
+    
             const haveNumber = item.querySelector('.click-number');
             if (haveNumber !== null) item.removeChild(haveNumber);
         });
-
+        
         currentClick.classList.add('selected');
 
         // 💡 Si el ID es coorp y current click = 1 click-number no se debería crear
 
-        // Coompruebo que no hay numero, si no hay lo creo para ese Click
-        // Si hacemos Click en el mismo si existe, no entra
+        // Coompruebo que no hay numero, lo creo para ese Click
+        // Si hacemos Click en el mismo y existe, no entra
         const lastNumberShowed = document.querySelector('.click-number');
         
         if (lastNumberShowed === null) {
             switch (player.type) {
                 case 'coorp':
                     if (currentNumber !== 1) {
-                        const numClick = document.createElement('span');
-                        numClick.classList.add('click-number');
-                        numClick.textContent = currentNumber;
-                        currentClick.appendChild(numClick);
+                        createNumber(currentClick, currentNumber);
                         currentClick.querySelector("svg").classList.toggle("hide");
                     }
                     break;
+                
+                case 'runner':
+                    createNumber(currentClick, currentNumber);
+                    currentClick.querySelector("svg").classList.toggle("hide");
+                break;
             
                 default:
                     break;
             }
             
-            
-            // if (player.type === 'coorp' && currentNumber !== 1) {
-            // const numClick = document.createElement('span');
-            // numClick.classList.add('click-number');
-            // numClick.textContent = currentNumber;
-            // currentClick.appendChild(numClick);
-            //     currentClick.querySelector("svg").classList.toggle("hide");
-            // }    
         }
     } 
 }   
@@ -93,20 +95,20 @@ function resetTrack(e) {
 
 // Reset Button in "click" track
 function resetClick() {
-    clicks.forEach((click) => {
+    
+    clicks.forEach(click => {
         const lastNumber = click.querySelector('.click-number');
         if (Number(click.dataset.number) === 1) {
             click.classList.add('selected');
-            if (!lastNumber) {
-                const numClick = document.createElement('span');
-                numClick.classList.add('click-number');
-                numClick.textContent = "1";
-                click.appendChild(numClick);    
+            if (!lastNumber && player.type === 'runner') {
+                createNumber(click, "1");
+                click.querySelector("svg").classList.add("hide");
             }
             
         } else {
             click.classList.remove('selected');
             if (lastNumber) click.removeChild(lastNumber);
+            click.querySelector("svg").classList.remove("hide");
         } 
     })
 }
@@ -156,41 +158,13 @@ function showTab(e) {
 // ID player selection
 function chooseID(e) {
     const playerOption = e.currentTarget.dataset.option;
-    player.changeType(playerOption);
-
-    // Menuda tontada tener estos dos if iguales...
-    if (player.type === 'runner') {
-        textClick1.classList.toggle('hide');
-        if (numClick1) numClick1.classList.toggle('hide');
-        
-    }
-    
-    if (player.type === 'coorp') {
-        textClick1.classList.toggle('hide');
-        if (numClick1) numClick1.classList.toggle('hide');
+    if (playerOption !== player.type) {
+        player.changeType(playerOption);
+        app.choose_ID(playerOption);
     }
     
     // trigger del menu tracks
     goToTracks();
-    
-    // Se muestra el playerAid
-    showPlayerAid(player.type);
-
-    // Swith CSS theme
-    switch (player.type) {
-        case 'runner':
-            bodyTag.classList.remove('coorp-theme')
-            bodyTag.classList.add('runner-theme')
-            break;
-        
-        case 'coorp':
-            bodyTag.classList.remove('runner-theme')
-            bodyTag.classList.add('coorp-theme')
-            break;
-    
-        default:
-            break;
-    }
 }
 
 // Tracks Menu Button Trigger
@@ -217,6 +191,13 @@ function showPlayerAid(playerType) {
     playerAidHide.classList.remove("show");
 }
 
+function createNumber(target, num) {
+    const numClick = document.createElement('span');
+    numClick.classList.add('click-number');
+    numClick.textContent = num;
+    target.appendChild(numClick);
+}
+
 export {
     limpiarHTML,
     changeClick,
@@ -225,5 +206,6 @@ export {
     buttonActions,
     showTab,
     chooseID,
-    showPlayerAid
+    showPlayerAid,
+    createNumber
 }

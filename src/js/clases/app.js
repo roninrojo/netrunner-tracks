@@ -1,22 +1,13 @@
-import {
-    svgClick1,
-    textClick1,
-    numClick1,
-    clicksTrack,
-    resetTracks,
-    trackButtons,
-    nav,
-    runnerBtn,
-    coorpBtn
-} from "../selectors.js";
+import * as selector from "../selectors.js";
 
 import {
     changeClick,
     resetTrack,
+    resetClick,
     buttonActions,
     showTab,
     chooseID,
-    showPlayerAid
+    showPlayerAid,
 } from "../functions.js"
 
 class App {
@@ -28,32 +19,70 @@ class App {
         // Evenets
         document.addEventListener('DOMContentLoaded', () => {
             // Navigation Menu
-            nav.addEventListener('click', showTab);
+            selector.nav.addEventListener('click', showTab);
             // track switcher
-            clicksTrack.addEventListener('click', changeClick);
+            selector.clicksTrack.addEventListener('click', changeClick);
             // Button reset for all tracks
-            resetTracks.forEach(item => item.addEventListener('click', resetTrack));
+            selector.resetTracks.forEach(item => item.addEventListener('click', resetTrack));
             // (+)(-) for all tracks
-            trackButtons.forEach(item => item.addEventListener('click', buttonActions));
+            selector.trackButtons.forEach(item => item.addEventListener('click', buttonActions));
             // Player ID Configuration
-            runnerBtn.addEventListener('click', chooseID);
-            coorpBtn.addEventListener('click', chooseID);
+            selector.runnerBtn.addEventListener('click', chooseID);
+            selector.coorpBtn.addEventListener('click', chooseID);
         });
-        
-        switch (this.playerType) {
+
+        showPlayerAid(this.playerType);
+        this.choose_ID(this.playerType);
+    }
+    
+    choose_ID(playerType) {
+        resetClick();
+
+        switch (playerType) {
             case 'coorp':
-                svgClick1.remove();
-                // numClick1.classList.toggle("hide"); // Esta en el html al inicio
+                // Remove 1st click image
+                selector.svgClick1.classList.add("hide");
+                selector.textClick1.classList.remove("hide");
+                const numClick1 = document.querySelector('[data-number="1"] .click-number');
+                if (numClick1 !== null) numClick1.remove();
+
+                // Show / hide correct tracks                
+                selector.memoryTrack.classList.add("hide");
+                selector.tagTrack.classList.add("hide");
+                selector.damegeTrack.classList.add("hide");
+                selector.publiTrack.classList.remove("hide");
+
+                // CSS theme
+                selector.bodyTag.classList.remove('runner-theme')
+                selector.bodyTag.classList.add('coorp-theme')
+                
                 break;
             case 'runner':
-                svgClick1.classList.toggle("hide");
-                textClick1.classList.toggle("hide");
+                console.log('runner al mando!');
+                
+                // Fisrt Click
+                selector.textClick1.classList.add("hide");
+                selector.svgClick1.classList.add("hide");
+                
+                // Show / hide correct tracks
+                selector.memoryTrack.classList.remove("hide");
+                selector.tagTrack.classList.remove("hide");
+                selector.damegeTrack.classList.remove("hide");
+                selector.publiTrack.classList.add("hide");
+
+                // Add 1 to first click
+                // createNumber(selector.defaultClick, "1")
+                
+                // CSS theme
+                selector.bodyTag.classList.remove('coorp-theme')
+                selector.bodyTag.classList.add('runner-theme')
+                
             default:
                 break;
         }
 
-        showPlayerAid(this.playerType);
-        // svgClick.classList.toggle("hide")
+        // Show correct player aid
+        showPlayerAid(playerType);
     }
 }
 
