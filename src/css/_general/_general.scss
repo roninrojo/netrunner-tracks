@@ -13,18 +13,6 @@ html {
 	font-size: 100%;
 }
 
-/* Small screens (default) */
-
-/* Medium screens (640px) */
-@media (min-width: 40rem) { 
-	html { font-size: 112%; }
-}
-
-/* Large screens (1024px) */
-@media (min-width: 64rem) { 
-  html { font-size: 120%; }
-}
-
 body {
 	width: 100vw;
 	height: 100vh;
@@ -47,8 +35,8 @@ body {
 	padding: $gap;
 	position: relative;
 
-	@include media('>desktop') {
-		max-width: 768px;
+	@include media('>=desktop') {
+		max-width: $max-content-width;
 		max-height: 1024px;
 	}
 }

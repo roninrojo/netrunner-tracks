@@ -17,7 +17,7 @@
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
     
-        --aug-border-all: 1px;
+        --aug-border-all: 3px;
         --aug-border-bg: rgba(255, 255, 255, .1);
     
         &:active {
@@ -31,6 +31,10 @@
     }
     &__text {
         position: relative;
+        display: inline-block;
+        padding: 2rem $space * 3;
+        --aug-border-all: 1px;
+        --aug-border-bg: var(--hudcolor);
     }
     
 }

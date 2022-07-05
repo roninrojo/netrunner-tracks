@@ -47,6 +47,7 @@ body {
   font-family: "Inconsolata", "Courier New", Courier, monospace;
   color: #fff;
   text-shadow: 0 0 5px #C8C8C8;
+  font-weight: bold;
 }
 
 .section-title {
@@ -72,19 +73,6 @@ html {
   font-size: 100%;
 }
 
-/* Small screens (default) */
-/* Medium screens (640px) */
-@media (min-width: 40rem) {
-  html {
-    font-size: 112%;
-  }
-}
-/* Large screens (1024px) */
-@media (min-width: 64rem) {
-  html {
-    font-size: 120%;
-  }
-}
 body {
   width: 100vw;
   height: 100vh;
@@ -108,7 +96,7 @@ body {
   padding: 0.5rem;
   position: relative;
 }
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .container {
     max-width: 768px;
     max-height: 1024px;
@@ -271,7 +259,7 @@ body {
   grid-template-columns: 100%;
   grid-template-rows: repeat(auto-fill, 1fr);
   gap: 0.5rem;
-  grid-template-areas: "clicks" "credits" "publi" "memory" "tags" "damage";
+  grid-template-areas: "clicks" "credits" "memory" "tags" "damage" "publi";
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks {
@@ -314,7 +302,7 @@ body {
 .tracks-publi {
   --aug-border: initial;
   --aug-border-bg: rgba(255, 255, 255, .1);
-  --aug-border-all: 2px;
+  --aug-border-all: 3px;
   --aug-clip-tl1: initial;
   --aug-clip-br1: initial;
   --aug-clip-bl1: initial;
@@ -366,6 +354,12 @@ body {
   justify-content: center;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+@media (min-width: 1024px) {
+  .click {
+    width: calc((768px - 1rem) / 5);
+    height: calc((768px - 1rem) / 5);
+  }
 }
 .click-animation {
   width: 20vw;
@@ -491,6 +485,10 @@ body {
   font-family: "Inconsolata", "Courier New", Courier, monospace;
 }
 
+.tracks-publi {
+  margin-top: -1.5rem;
+}
+
 @-webkit-keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -547,7 +545,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  --aug-border-all: 1px;
+  --aug-border-all: 3px;
   --aug-border-bg: rgba(255, 255, 255, .1);
 }
 .choose-id__runner:active, .choose-id__coorp:active {
@@ -559,6 +557,10 @@ body {
 }
 .choose-id__text {
   position: relative;
+  display: inline-block;
+  padding: 2rem 3rem;
+  --aug-border-all: 1px;
+  --aug-border-bg: var(--hudcolor);
 }
 
 /*--------------------------------------------------------*\

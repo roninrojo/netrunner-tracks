@@ -24,8 +24,9 @@ $lightred: #ff006a;
 $hudwhite: rgba(255, 255, 255, .1);
 $hudred: rgba(255, 0, 0, 0.1);
 
-// Mesures
+// sizes
 $app-margin-top: 5vh;
+$max-content-width: 768px;
 $space: 1rem;
 $space--small: calc($space / 2);
 $gap: $space--small;

@@ -9,10 +9,10 @@
     grid-template-areas: 
         "clicks"
         "credits"
-        "publi" 
         "memory"
         "tags" 
-        "damage";
+        "damage"
+        "publi";
     
     @include media('<desktop','landscape') {
         grid-template-columns: calc(100vw/3) calc(100vw - (100vw/3)); 
@@ -44,7 +44,7 @@
  {
     --aug-border: initial;
     --aug-border-bg: rgba(255, 255, 255, .1);
-    --aug-border-all: 2px;
+    --aug-border-all: 3px;
     --aug-clip-tl1: initial;
     --aug-clip-br1: initial;
     --aug-clip-bl1: initial;
@@ -56,7 +56,7 @@
 
 // Clicks
 .tracks-clicks {
-    padding: 1rem;
+    padding: $space;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -89,6 +89,10 @@
 }
 
 .click {
+    @include media('>=desktop') {
+        width: calc(($max-content-width - $space) / 5);
+        height: calc(($max-content-width - $space) / 5);
+    }
     width: 20vw;
     height: 20vw;
     border-radius: 100%;
@@ -214,6 +218,10 @@
     }
 }
 
+
+.tracks-publi {
+    margin-top: -$gap * 3
+}
 
 
 // ANIMATIONS
