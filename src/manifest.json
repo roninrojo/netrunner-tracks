@@ -2,26 +2,11 @@
   "$schema": "http://json.schemastore.org/web-manifest",
   "short_name": "netrunnertracks",
   "name": "Netrunner Tracks",
-  "description": "Web application to help Netrunner players keep track of their values (credits, damage, etc)",
+   "description": "Web application to help Netrunner players keep track of their values (credits, damage, etc)",
   "scope": "/",
   "icons": [
     {
-      "src": "img2x.jpg",
-      "sizes": "96x96",
-      "type": "image/jpg"
-    },
-    {
-      "src": "img3x.jpg",
-      "sizes": "144x144",
-      "type": "image/jpg"
-    },
-    {
-      "src": "img4x.jpg",
-      "sizes": "192x192",
-      "type": "image/jpg"
-    },
-    {
-      "src": "img6x.jpg",
+      "src": "img/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/jpg"
     }
