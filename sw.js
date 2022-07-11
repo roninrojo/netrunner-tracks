@@ -1,8 +1,9 @@
-const cacheName = "app-v1";
+const cacheName = "app-v1.1";
 const files = [
     "./",
     "./index.html",
     "./css/styles.css",
+    "./css/augmented-ui.min.css",
     "./js/app.js",
     "./js/register-sw.js"
 ]

@@ -1,0 +1,25 @@
+{
+  "name": "netrunner-tracks",
+  "version": "1.0.0",
+  "description": "Netruner Tracking App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roninrojo/netrunner-tracks.git"
+  },
+  "keywords": [
+    "app"
+  ],
+  "author": "Alberto Carazo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roninrojo/netrunner-tracks/issues"
+  },
+  "homepage": "https://github.com/roninrojo/netrunner-tracks#readme",
+  "dependencies": {
+    "augmented-ui": "^2.0.0"
+  }
+}
