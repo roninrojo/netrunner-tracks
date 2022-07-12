@@ -26,7 +26,7 @@ body.default-theme {
 }
 
 body.coorp-theme {
-  --bg-theme: radial-gradient(rgba(65, 105, 145, 0.75), black 120%);
+  --bg-theme: radial-gradient(rgba(65, 105, 145, 0.749), black 120%);
   --lightcolor: #cefbff;
   --hudcolor: rgba(255, 255, 255, 0.1);
 }
@@ -528,6 +528,18 @@ body {
 }
 .player-aid .player-actions--coorp {
   display: none;
+}
+
+.credits {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.credits-card {
+  padding: 1rem;
+  --aug-border-all: 2px;
+  --agu-border-bg: var(--hudcolor);
 }
 
 .choose-id {

@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/augmented-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/augmented-ui.min.css">
     
-    <link rel="manifest" href="./manifest.json">
-     <meta name="theme-color" content="#416991"/>
+    <!-- PWA -->
+    <!-- <link rel="manifest" href="./manifest.json"> -->
+    <meta name="theme-color" content="#416991"/>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
     <title>Netrunner Tracks</title>
 </head>
 <body class="coorp-theme">
@@ -151,14 +152,15 @@
                 </ul>
             </section>
             <section class="credits" data-tab="4">
-                Make with 💙 by Alberto Carazo
+
+                <div class="credits-card" data-augmented-ui="tl-clip br-clip border">Make by Alberto Carazo</div>
             </section>
         </div>
         
     </div>
 
 
-    <script src="js/register-sw.js"></script>
+    <!-- <script src="js/register-sw.js"></script> -->
     <script src="js/app.js" type="module"></script>
 </body>
 </html>

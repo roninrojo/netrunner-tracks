@@ -1,0 +1,16 @@
+@use "../_modules/vars" as *;
+
+.credits {
+    height: calc(100vh - $app-margin-top);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &-card {
+        padding: $space;
+
+        --aug-border-all: 2px;
+        --agu-border-bg: var(--hudcolor);
+    }
+    
+}

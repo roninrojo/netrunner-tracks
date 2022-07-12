@@ -1,11 +1,17 @@
-const cacheName = "app-v1.1";
+const cacheName = "app-v1";
 const files = [
     "./",
     "./index.html",
     "./css/styles.css",
     "./css/augmented-ui.min.css",
+    "./img/favicon-32x32.png",
+    "./img/favicon-16x16.png",
     "./js/app.js",
-    "./js/register-sw.js"
+    "./js/register-sw.js",
+    "./js/functions.js",
+    "./js/selectors.js",
+    "./js/clases/app.js",
+    "./js/clases/player.js"
 ]
 
 self.addEventListener('install', e => {

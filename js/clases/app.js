@@ -58,7 +58,6 @@ class App {
                 
                 break;
             case 'runner':
-                console.log('runner al mando!');
                 
                 // Fisrt Click
                 selector.textClick1.classList.add("hide");
