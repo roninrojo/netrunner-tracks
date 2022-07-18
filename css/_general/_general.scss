@@ -31,13 +31,12 @@ body {
 
 .container {
 	width: 100vw;
-	height: calc(100vh - $app-margin-top);
+	height: 100vh;
 	padding: $gap;
 	position: relative;
 
-	@include media('>=desktop') {
+	@include media('>=500px') {
 		max-width: $max-content-width;
-		max-height: 1024px;
 	}
 }
 

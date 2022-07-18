@@ -26,7 +26,7 @@ $hudred: rgba(255, 0, 0, 0.1);
 
 // sizes
 $app-margin-top: 5vh;
-$max-content-width: 768px;
+$max-content-width: 25em;
 $space: 1rem;
 $space--small: calc($space / 2);
 $gap: $space--small;
@@ -34,4 +34,3 @@ $click-height: calc(((100vh - $app-margin-top) - $gap * 6) / 5);
 
 // Border Radius
 $bdr: .2rem;
-

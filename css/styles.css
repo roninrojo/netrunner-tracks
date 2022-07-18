@@ -92,14 +92,13 @@ body {
 
 .container {
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
   padding: 0.5rem;
   position: relative;
 }
-@media (min-width: 1024px) {
+@media (min-width: 500px) {
   .container {
-    max-width: 768px;
-    max-height: 1024px;
+    max-width: 25em;
   }
 }
 
@@ -220,7 +219,7 @@ body {
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   --aug-border: initial;
   --aug-clip-br1: initial;
   --aug-clip-bl1: initial;
@@ -357,8 +356,8 @@ body {
 }
 @media (min-width: 1024px) {
   .click {
-    width: calc((768px - 1rem) / 5);
-    height: calc((768px - 1rem) / 5);
+    width: calc((25em - 1rem) / 5);
+    height: calc((25em - 1rem) / 5);
   }
 }
 .click-animation {
