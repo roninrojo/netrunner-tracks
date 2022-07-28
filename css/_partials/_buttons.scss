@@ -26,9 +26,14 @@
         position: absolute;
         right: $space;
         border-radius: 0;
+        text-transform: uppercase;
+        font-size: 0.9em;
 
         --aug-clip-tl1: initial;
         --aug-tl1: 5px;
+        --aug-border: initial;
+        --aug-border-bg: var(--lightcolor);
+        --aug-border-all: 1px;
     }
 
     &--amount {
@@ -38,6 +43,9 @@
         align-items: center;
         padding: 0 $space;
 
+        --aug-border: initial;
+        --aug-border-bg: var(--lightcolor);
+        --aug-border-all: var(--hudbd);
         --aug-clip-br1: initial;
         --aug-br1: 10px;
     }

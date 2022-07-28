@@ -43,8 +43,10 @@
 .tracks-publi
  {
     --aug-border: initial;
-    --aug-border-bg: rgba(255, 255, 255, .1);
-    --aug-border-all: 3px;
+    --aug-inlay: initial;
+    --aug-border-bg: var(--lightcolor);
+    --aug-inlay-bg: var(--inlaycolor);
+    --aug-border-all: var(--hudbd);
     --aug-clip-tl1: initial;
     --aug-clip-br1: initial;
     --aug-clip-bl1: initial;
@@ -60,7 +62,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
+    // width: 100%;
+    width: calc(100vw - $gap * 2);
     // Distancia para el menu
     margin-top: $app-margin-top;
     height: $click-height;
@@ -76,8 +79,10 @@
 
     &__row {
         display: flex;
-        gap: 3vw;
+        gap: $gap;
         margin-top: 0;
+        width: 100%;
+        height: 100%;
         
 
         @include media('<desktop','landscape') {
@@ -89,14 +94,19 @@
 }
 
 .click {
-    @include media('>=desktop') {
-        width: calc(($max-content-width - $space) / 5);
-        height: calc(($max-content-width - $space) / 5);
-    }
-    width: 20vw;
-    height: 20vw;
-    border-radius: 100%;
-    border: 4px solid rgba(255, 255, 255, .2);
+    width: calc((((100vh - $app-margin-top) - $gap * 6) / 5));
+    // height: auto;
+    // padding: .5rem;
+    // border-radius: 100%;
+    // border: 4px solid rgba(255, 255, 255, .2);
+    
+    --aug-border: initial;
+    --aug-border-all: 2px;
+    --aug-border-bg: var(--lightcolor);
+    --aug-clip-tl1: initial;
+    --aug-clip-br1: initial;
+    --aug-tl1: 10px;
+    --aug-br1: 15px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -105,8 +115,8 @@
 
 
     &-animation {
-        width: 20vw;
-        height: 20vw;
+        width: 15vw;
+        height: 15vw;
         display: none;
         align-items: center;
         justify-content: center;
@@ -119,12 +129,12 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            width: 20vw;
-            height: 20vw;
+            width: 17vw;
+            height: 17vw;
             transform: translate(-50%, -50%);
             border-radius: 50%;
             border: 3px solid;
-            border-color: var(--lightcolor) transparent;
+            border-color: #fff transparent;
             
             @include media('<desktop','landscape') {
                 width: 20vh;
@@ -212,9 +222,10 @@
         font-size: $font-size-big;
         width: calc(100vw/3);
         background: var(--hudcolor);
-        border: 0;
         color: #fff;
         font-family: $font-family;
+
+        border: var(--hudbd) solid var(--lightcolor);
     }
 }
 

@@ -14,14 +14,13 @@ body {
     font-family: $font-family;
     color: #fff;
     text-shadow: 0 0 5px #C8C8C8;
-    font-weight: bold;;
 }
 
 .section-title {
     display: inline-block;
     font-size: .9em;
     font-weight: bold;
-    text-transform: lowercase;
+    text-transform: uppercase;
     margin-bottom: $space;
 
     @include media('<desktop','landscape') {

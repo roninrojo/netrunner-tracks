@@ -1,9 +1,14 @@
 @use "../_modules/vars" as *;
 
+:root {
+    --hudbd: 2px;
+}
+
 body.default-theme {
     --bg-theme: #{$bg-default};
     --lightcolor: #{$lightblue};
     --hudcolor: #{$hudwhite};
+    --inlaycolor: #{$inlay-default};
 }
 
 
@@ -11,10 +16,12 @@ body.coorp-theme {
     --bg-theme: #{$bg-coorp};
     --lightcolor: #{$lightblue};
     --hudcolor: #{$hudwhite};
+    --inlaycolor: #{$inlay-corp};
 }
 
 body.runner-theme {
     --bg-theme: #{$bg-runner};
     --lightcolor: #{$lightred};
     --hudcolor: #{$hudred};
+    --inlaycolor: #{$inlay-runner};
 }

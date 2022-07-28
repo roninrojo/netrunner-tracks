@@ -8,7 +8,8 @@
 */
 
 // Fonts
-$font-family: 'Inconsolata', 'Courier New', Courier, monospace;
+$font-family: 'Rajdhani', 'Courier New', sans-serif;
+
 $font-size-big: 2em;
 $font-size-default: 1em;
 
@@ -19,16 +20,20 @@ linear-gradient(180deg, rgba(115,34,34) 0%, rgba(65,105,144) 100%);
 
 $bg-coorp: radial-gradient(rgba(65, 105, 145, 0.749), black 120%);
 $bg-runner: radial-gradient(rgba(115, 34, 34, 0.75), black 120%);
-$lightblue: #cefbff;
+$lightblue: #00eaff;
 $lightred: #ff006a;
-$hudwhite: rgba(255, 255, 255, .1);
-$hudred: rgba(255, 0, 0, 0.1);
+$hudwhite: rgba(255, 255, 255, .2);
+$hudred: rgba(255, 0, 0, 0.2);
+$inlay-runner: rgba(255, 0, 64, 0.1);
+$inlay-corp: rgba(0, 149, 255, 0.15);
+$inlay-default: transparent;
 
 // sizes
 $app-margin-top: 5vh;
 $max-content-width: 25em;
 $space: 1rem;
 $space--small: calc($space / 2);
+$space--big: calc($space * 2);
 $gap: $space--small;
 $click-height: calc(((100vh - $app-margin-top) - $gap * 6) / 5);
 

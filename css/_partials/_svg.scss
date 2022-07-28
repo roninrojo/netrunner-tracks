@@ -6,7 +6,8 @@
     &-tag,
     &-damage,
     &-publi {
-        width: 15vw;
+        width: 10vw;
+        max-height: calc((100vh / 4) / 3);
 
         &__fill {
             fill: rgba(255, 255, 255, 0.75);
