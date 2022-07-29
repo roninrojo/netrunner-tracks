@@ -5,7 +5,8 @@
     position: relative;
     
     &__runner,
-    &__coorp{
+    &__corp,
+    &__desc {
         position: relative;
         width: 100%;
         padding: $gap;
@@ -25,7 +26,8 @@
         }
     }
     
-    &__runner {
+    &__runner,
+    &__corp {
         margin-bottom: $gap;
     }
     &__text {
@@ -37,31 +39,17 @@
         --aug-inlay-bg: var(--inlaycolor);
     }
 
-    .aug-element-1 {
-        position: absolute;
-        width: 50%;
-        height: 15px;
-        top: .5rem;
-        left: 11rem;
+    &__desc {
+        --aug-border-bg: var(--hudcolor);
 
-        --aug-border: initial;
-        --aug-inlay-bg: var(--hudcolor);
-        --aug-border-bg: var(--lightcolor);
-        --aug-clip-bl1: initial;
-        --aug-border-top: 0px;
-        --aug-border-left: 1px;
-        --aug-border-right: -1px;
-        --aug-border-bottom: 1px;
-        
-        &:before { 
-            position: absolute;
-            width: 50px;
-            height: 20px;
-            background-color:  var(--lightcolor);
-            transform: skew(45deg);
-            content: '';
+        &-text {
+            margin-left: $space--big;
+        }
+
+        .aug-element-2 {
+            height: 7px;
+            margin-left: $space--small;
         }
     }
-    
 }
 

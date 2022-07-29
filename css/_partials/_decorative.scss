@@ -1,0 +1,52 @@
+// Cyberpunk Decorative UI elemetns
+
+@use "../_modules/vars" as *;
+
+/*
+ \__\________
+ */
+.aug-element-1 {
+    position: absolute;
+    width: 50%;
+    height: 15px;
+    top: .5rem;
+    left: 11rem;
+
+    --aug-border: initial;
+    --aug-inlay-bg: var(--hudcolor);
+    --aug-border-bg: var(--lightcolor);
+    --aug-clip-bl1: initial;
+    --aug-border-top: 0px;
+    --aug-border-left: 1px;
+    --aug-border-right: -1px;
+    --aug-border-bottom: 1px;
+
+    &:before { 
+        position: absolute;
+        width: 50px;
+        height: 15px;
+        background-color:  var(--lightcolor);
+        transform: skew(45deg);
+        content: '';
+    }
+
+    .tracks-clicks & {
+        left: 20%;
+        top: 1rem;
+        width: 60%;
+    }
+    .tracks-credits & {
+        left: 22%;
+        top: 1rem;
+        width: 55%;
+    }
+}
+
+.aug-element-2 {
+    position: absolute;
+    bottom: $space--small;
+    width: 15px;
+    height: 15px;
+    background-color:  var(--lightcolor);
+    transform: skew(45deg);
+}

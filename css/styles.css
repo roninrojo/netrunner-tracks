@@ -30,7 +30,7 @@ body.default-theme {
   --inlaycolor: transparent;
 }
 
-body.coorp-theme {
+body.corp-theme {
   --bg-theme: radial-gradient(rgba(65, 105, 145, 0.749), black 120%);
   --lightcolor: #00eaff;
   --hudcolor: rgba(255, 255, 255, 0.2);
@@ -270,6 +270,52 @@ body {
   background-color: var(--inlaycolor);
 }
 
+/*
+ \__\________
+ */
+.aug-element-1 {
+  position: absolute;
+  width: 50%;
+  height: 15px;
+  top: 0.5rem;
+  left: 11rem;
+  --aug-border: initial;
+  --aug-inlay-bg: var(--hudcolor);
+  --aug-border-bg: var(--lightcolor);
+  --aug-clip-bl1: initial;
+  --aug-border-top: 0px;
+  --aug-border-left: 1px;
+  --aug-border-right: -1px;
+  --aug-border-bottom: 1px;
+}
+.aug-element-1:before {
+  position: absolute;
+  width: 50px;
+  height: 15px;
+  background-color: var(--lightcolor);
+  transform: skew(45deg);
+  content: "";
+}
+.tracks-clicks .aug-element-1 {
+  left: 20%;
+  top: 1rem;
+  width: 60%;
+}
+.tracks-credits .aug-element-1 {
+  left: 22%;
+  top: 1rem;
+  width: 55%;
+}
+
+.aug-element-2 {
+  position: absolute;
+  bottom: 0.5rem;
+  width: 15px;
+  height: 15px;
+  background-color: var(--lightcolor);
+  transform: skew(45deg);
+}
+
 .tracks {
   display: grid;
   grid-template-columns: 100%;
@@ -335,7 +381,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: calc(100vw - 1rem);
   margin-top: 5vh;
   height: calc((95vh - 3rem) / 5);
 }
@@ -366,6 +411,7 @@ body {
 
 .click {
   width: calc((95vh - 3rem) / 5);
+  border-right: 15px solid transparent;
   --aug-border: initial;
   --aug-border-all: 2px;
   --aug-border-bg: var(--lightcolor);
@@ -380,8 +426,8 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 .click-animation {
-  width: 15vw;
-  height: 15vw;
+  width: 10vw;
+  height: 10vw;
   display: none;
   align-items: center;
   justify-content: center;
@@ -395,8 +441,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 17vw;
-  height: 17vw;
+  width: 10vw;
+  height: 10vw;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 3px solid;
@@ -493,14 +539,26 @@ body {
 .tracks-damage__amount,
 .tracks-publi__amount {
   height: 8.3333333333vh;
-  padding: 0 1rem;
+  padding: 0 1rem 0 2rem;
   line-height: 1;
   font-size: 2em;
   width: 33.3333333333vw;
   background: var(--hudcolor);
   color: #fff;
   font-family: "Rajdhani", "Courier New", sans-serif;
-  border: var(--hudbd) solid var(--lightcolor);
+}
+
+.amount-ui {
+  --aug-border: initial;
+  --aug-border-bg: var(--lightcolor);
+  --aug-border-all: var(--hudbd);
+  --aug-clip-br1: initial;
+  --aug-clip-tr1: initial;
+  --aug-clip-l1: initial;
+  --aug-clip-l2: initial;
+  --aug-l-extend1: 40%;
+  --aug-l1-width: 10px;
+  --aug-l2-width: 10px;
 }
 
 .tracks-publi {
@@ -544,7 +602,7 @@ body {
   --aug-border-all: 1px;
   --aug-border-bg: rgba(255, 255, 255, .1);
 }
-.player-aid .player-actions--coorp {
+.player-aid .player-actions--corp {
   display: none;
 }
 
@@ -564,7 +622,7 @@ body {
   margin-top: 5vh;
   position: relative;
 }
-.choose-id__runner, .choose-id__coorp {
+.choose-id__runner, .choose-id__corp, .choose-id__desc {
   position: relative;
   width: 100%;
   padding: 0.5rem;
@@ -576,11 +634,11 @@ body {
   --aug-border-all: var(--hudbd);
   --aug-border-bg: var(--lightcolor);
 }
-.choose-id__runner:active, .choose-id__coorp:active {
+.choose-id__runner:active, .choose-id__corp:active, .choose-id__desc:active {
   background-color: var(--lightcolor);
   color: #000;
 }
-.choose-id__runner {
+.choose-id__runner, .choose-id__corp {
   margin-bottom: 0.5rem;
 }
 .choose-id__text {
@@ -590,28 +648,15 @@ body {
   --aug-inlay: initial;
   --aug-inlay-bg: var(--inlaycolor);
 }
-.choose-id .aug-element-1 {
-  position: absolute;
-  width: 50%;
-  height: 15px;
-  top: 0.5rem;
-  left: 11rem;
-  --aug-border: initial;
-  --aug-inlay-bg: var(--hudcolor);
-  --aug-border-bg: var(--lightcolor);
-  --aug-clip-bl1: initial;
-  --aug-border-top: 0px;
-  --aug-border-left: 1px;
-  --aug-border-right: -1px;
-  --aug-border-bottom: 1px;
+.choose-id__desc {
+  --aug-border-bg: var(--hudcolor);
 }
-.choose-id .aug-element-1:before {
-  position: absolute;
-  width: 50px;
-  height: 20px;
-  background-color: var(--lightcolor);
-  transform: skew(45deg);
-  content: "";
+.choose-id__desc-text {
+  margin-left: 2rem;
+}
+.choose-id__desc .aug-element-2 {
+  height: 7px;
+  margin-left: 0.5rem;
 }
 
 /*--------------------------------------------------------*\

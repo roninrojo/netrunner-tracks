@@ -62,8 +62,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // width: 100%;
-    width: calc(100vw - $gap * 2);
     // Distancia para el menu
     margin-top: $app-margin-top;
     height: $click-height;
@@ -95,6 +93,7 @@
 
 .click {
     width: calc((((100vh - $app-margin-top) - $gap * 6) / 5));
+    border-right: 15px solid transparent;
     // height: auto;
     // padding: .5rem;
     // border-radius: 100%;
@@ -115,8 +114,8 @@
 
 
     &-animation {
-        width: 15vw;
-        height: 15vw;
+        width: 10vw;
+        height: 10vw;
         display: none;
         align-items: center;
         justify-content: center;
@@ -129,8 +128,8 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            width: 17vw;
-            height: 17vw;
+            width: 10vw;
+            height: 10vw;
             transform: translate(-50%, -50%);
             border-radius: 50%;
             border: 3px solid;
@@ -217,7 +216,7 @@
     // input
     &__amount {
         height: calc((100vh / 4) / 3);
-        padding: 0 $space;
+        padding: 0 $space 0 $space * 2;
         line-height: 1;
         font-size: $font-size-big;
         width: calc(100vw/3);
@@ -225,10 +224,25 @@
         color: #fff;
         font-family: $font-family;
 
-        border: var(--hudbd) solid var(--lightcolor);
+        
     }
 }
 
+.amount-ui {
+
+    --aug-border: initial;
+    --aug-border-bg: var(--lightcolor);
+    --aug-border-all: var(--hudbd);
+    --aug-clip-br1: initial;
+    --aug-clip-tr1: initial;
+
+    --aug-clip-l1: initial;
+    --aug-clip-l2: initial;
+    --aug-l-extend1: 40%;
+
+    --aug-l1-width: 10px;
+    --aug-l2-width: 10px;
+}
 
 .tracks-publi {
     margin-top: -$gap * 3

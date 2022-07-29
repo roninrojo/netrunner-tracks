@@ -28,7 +28,7 @@ class App {
             selector.trackButtons.forEach(item => item.addEventListener('click', buttonActions));
             // Player ID Configuration
             selector.runnerBtn.addEventListener('click', chooseID);
-            selector.coorpBtn.addEventListener('click', chooseID);
+            selector.corpBtn.addEventListener('click', chooseID);
         });
 
         showPlayerAid(this.playerType);
@@ -39,7 +39,7 @@ class App {
         resetClick();
 
         switch (playerType) {
-            case 'coorp':
+            case 'corp':
                 // Remove 1st click image
                 selector.svgClick1.classList.add("hide");
                 selector.textClick1.classList.remove("hide");
@@ -54,7 +54,7 @@ class App {
 
                 // CSS theme
                 selector.bodyTag.classList.remove('runner-theme')
-                selector.bodyTag.classList.add('coorp-theme')
+                selector.bodyTag.classList.add('corp-theme')
                 
                 break;
             case 'runner':
@@ -73,7 +73,7 @@ class App {
                 // createNumber(selector.defaultClick, "1")
                 
                 // CSS theme
-                selector.bodyTag.classList.remove('coorp-theme')
+                selector.bodyTag.classList.remove('corp-theme')
                 selector.bodyTag.classList.add('runner-theme')
                 
             default:

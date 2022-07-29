@@ -32,7 +32,7 @@ function changeClick(e) {
                 case 'runner':
                     item.querySelector('svg').classList.remove('hide');
                     break;
-                case 'coorp':
+                case 'corp':
                     if (Number(item.dataset.number) !== 1) {
                         item.querySelector('svg').classList.remove('hide');
                     }
@@ -47,7 +47,7 @@ function changeClick(e) {
         
         currentClick.classList.add('selected');
 
-        // 💡 Si el ID es coorp y current click = 1 click-number no se debería crear
+        // 💡 Si el ID es corp y current click = 1 click-number no se debería crear
 
         // Coompruebo que no hay numero, lo creo para ese Click
         // Si hacemos Click en el mismo y existe, no entra
@@ -55,7 +55,7 @@ function changeClick(e) {
         
         if (lastNumberShowed === null) {
             switch (player.type) {
-                case 'coorp':
+                case 'corp':
                     if (currentNumber !== 1) {
                         createNumber(currentClick, currentNumber);
                         currentClick.querySelector("svg").classList.toggle("hide");

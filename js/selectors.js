@@ -20,7 +20,7 @@ export const playerAids = document.querySelectorAll("[data-aid]");
 
 // ID
 export const runnerBtn = document.querySelector(".choose-id__runner");
-export const coorpBtn = document.querySelector(".choose-id__coorp");
+export const corpBtn = document.querySelector(".choose-id__corp");
 export const bodyTag = document.querySelector("body");
 
 //Menu
