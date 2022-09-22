@@ -311,6 +311,21 @@ body {
   top: 1rem;
   width: 45%;
 }
+.tracks-memory .aug-element-1 {
+  left: 32%;
+  top: 1rem;
+  width: 45%;
+}
+.tracks-damage .aug-element-1 {
+  left: 32%;
+  top: 1rem;
+  width: 45%;
+}
+.tracks-tags .aug-element-1 {
+  left: 17%;
+  top: 1rem;
+  width: 60%;
+}
 
 .aug-element-2 {
   position: absolute;
