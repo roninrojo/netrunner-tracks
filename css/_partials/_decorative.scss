@@ -8,7 +8,7 @@
 .aug-element-1 {
     position: absolute;
     width: 50%;
-    height: 15px;
+    height: 16px;
     top: .5rem;
     left: 11rem;
 
@@ -39,6 +39,11 @@
         left: 22%;
         top: 1rem;
         width: 55%;
+    }
+    .tracks-publi & {
+        left: 32%;
+        top: 1rem;
+        width: 45%;
     }
 }
 

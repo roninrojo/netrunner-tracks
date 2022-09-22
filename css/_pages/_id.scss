@@ -20,7 +20,7 @@
         --aug-border-all: var(--hudbd);
         --aug-border-bg: var(--lightcolor);
     
-        &:active {
+        &:active:not(.choose-id__desc) {
             background-color: var(--lightcolor);
             color: #000;
         }

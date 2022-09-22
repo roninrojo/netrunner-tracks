@@ -276,7 +276,7 @@ body {
 .aug-element-1 {
   position: absolute;
   width: 50%;
-  height: 15px;
+  height: 16px;
   top: 0.5rem;
   left: 11rem;
   --aug-border: initial;
@@ -305,6 +305,11 @@ body {
   left: 22%;
   top: 1rem;
   width: 55%;
+}
+.tracks-publi .aug-element-1 {
+  left: 32%;
+  top: 1rem;
+  width: 45%;
 }
 
 .aug-element-2 {
@@ -426,8 +431,8 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 .click-animation {
-  width: 10vw;
-  height: 10vw;
+  width: 14vw;
+  height: 14vw;
   display: none;
   align-items: center;
   justify-content: center;
@@ -441,8 +446,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 10vw;
-  height: 10vw;
+  width: 14vw;
+  height: 14vw;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 3px solid;
@@ -479,6 +484,7 @@ body {
 }
 .click-text {
   text-align: center;
+  font-size: 0.9em;
 }
 
 .tracks-credits,
@@ -606,13 +612,13 @@ body {
   display: none;
 }
 
-.credits {
+.about {
   height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.credits-card {
+.about-card {
   padding: 1rem;
   --aug-border-all: 2px;
   --agu-border-bg: var(--hudcolor);
@@ -634,7 +640,7 @@ body {
   --aug-border-all: var(--hudbd);
   --aug-border-bg: var(--lightcolor);
 }
-.choose-id__runner:active, .choose-id__corp:active, .choose-id__desc:active {
+.choose-id__runner:active:not(.choose-id__desc), .choose-id__corp:active:not(.choose-id__desc), .choose-id__desc:active:not(.choose-id__desc) {
   background-color: var(--lightcolor);
   color: #000;
 }

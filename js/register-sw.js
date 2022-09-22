@@ -4,5 +4,4 @@ if ('serviceWorker' in navigator) {
         .catch( error =>  console.log('No se registró ❌', error))
 } else {
     console.log('Service Worker no soportado');
-    
 }

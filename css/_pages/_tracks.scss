@@ -114,8 +114,8 @@
 
 
     &-animation {
-        width: 10vw;
-        height: 10vw;
+        width: 14vw;
+        height: 14vw;
         display: none;
         align-items: center;
         justify-content: center;
@@ -128,8 +128,8 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            width: 10vw;
-            height: 10vw;
+            width: 14vw;
+            height: 14vw;
             transform: translate(-50%, -50%);
             border-radius: 50%;
             border: 3px solid;
@@ -169,6 +169,7 @@
 
     &-text {
         text-align: center;
+        font-size: 0.9em;
     }
 }
 

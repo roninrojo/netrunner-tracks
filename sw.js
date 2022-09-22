@@ -1,13 +1,17 @@
-const cacheName = "app-v1";
+const cacheName = "app-v1-3";
 const files = [
     "./",
     "./index.html",
+    "./manifest.json",
     "./css/styles.css",
     "./css/augmented-ui.min.css",
     "./img/favicon-32x32.png",
     "./img/favicon-16x16.png",
-    "./js/app.js",
+    "./img/NISEI_CLICK.svg",
+    "./img/NISEI_CREDIT.svg",
+    "./img/NISEI_AGENDA.svg",
     "./js/register-sw.js",
+    "./js/app.js",
     "./js/functions.js",
     "./js/selectors.js",
     "./js/clases/app.js",
@@ -28,12 +32,27 @@ self.addEventListener('install', e => {
     
 });
 
-// fetch install files
-self.addEventListener('fetch', e => {
-    console.log("Fetching... 👀", e);
+self.addEventListener('activate', e => console.log('Service worker activate event!'));
 
-    e.respondWith(
-        caches.match(e.request)
-            .then(response => response)
-    )
-})
+// fetch install files
+// self.addEventListener('fetch', e => {
+//     console.log("Fetching... 👀", e);
+
+//     e.respondWith( 
+//         caches.match(e.request)
+//             .then(response => response)
+//             .catch(error => console.log(error))
+//     )
+// })
+
+self.addEventListener('fetch', e => {
+  console.log('Fetch intercepted for:', e.request.url);
+  e.respondWith(
+    caches.match(e.request).then( cachedResponse => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(e.request);
+    }),
+  );
+});
