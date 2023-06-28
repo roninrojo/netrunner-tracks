@@ -121,8 +121,8 @@ body {
 }
 
 .svg-click, .svg-credit, .svg-memory, .svg-tag, .svg-damage, .svg-publi {
-  width: 10vw;
-  max-height: 8.3333333333vh;
+  width: 50%;
+  max-height: 60%;
 }
 .svg-click__fill, .svg-credit__fill, .svg-memory__fill, .svg-tag__fill, .svg-damage__fill, .svg-publi__fill {
   fill: rgba(255, 255, 255, 0.75);
@@ -153,17 +153,7 @@ body {
   background-color: rgba(0, 0, 0, 0.069);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   bottom: -3px;
-  -webkit-animation: scan 2s linear infinite;
-          animation: scan 2s linear infinite;
-}
-
-@-webkit-keyframes scan {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100vh);
-  }
+  animation: scan 2s linear infinite;
 }
 
 @keyframes scan {
@@ -185,7 +175,6 @@ body {
 \*--------------------------------------------------------*/
 .button {
   padding: 0.2rem;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   cursor: pointer;
@@ -198,7 +187,6 @@ body {
 .button--tracks {
   background-color: var(--hudcolor);
   border-radius: 0.2rem;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -417,9 +405,10 @@ body {
 .tracks-clicks__row {
   display: flex;
   gap: 0.5rem;
-  margin-top: 0;
-  width: 100%;
+  width: calc(100% - 1rem);
   height: 100%;
+  margin: 0 auto;
+  justify-content: center;
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks-clicks__row {
@@ -430,8 +419,7 @@ body {
 }
 
 .click {
-  width: calc((95vh - 3rem) / 5);
-  border-right: 15px solid transparent;
+  min-width: 25%;
   --aug-border: initial;
   --aug-border-all: 2px;
   --aug-border-bg: var(--lightcolor);
@@ -451,8 +439,7 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  -webkit-animation: rotation 3s linear infinite;
-          animation: rotation 3s linear infinite;
+  animation: rotation 3s linear infinite;
   position: relative;
 }
 .click-animation:after {
@@ -487,8 +474,7 @@ body {
   }
 }
 .click.selected .click-animation {
-  -webkit-animation: rotation 3s linear infinite;
-          animation: rotation 3s linear infinite;
+  animation: rotation 3s linear infinite;
   display: flex;
   position: absolute;
 }
@@ -517,10 +503,10 @@ body {
 }
 @media (max-width: 1023px) and (orientation: landscape) {
   .tracks-credits,
-.tracks-memory,
-.tracks-tags,
-.tracks-damage,
-.tracks-publi {
+  .tracks-memory,
+  .tracks-tags,
+  .tracks-damage,
+  .tracks-publi {
     width: 66.6666666667vw;
     height: 25vh;
   }
@@ -549,6 +535,7 @@ body {
 .tracks-damage__row,
 .tracks-publi__row {
   display: flex;
+  gap: 0.5rem;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
@@ -563,7 +550,7 @@ body {
   padding: 0 1rem 0 2rem;
   line-height: 1;
   font-size: 2em;
-  width: 33.3333333333vw;
+  width: 100%;
   background: var(--hudcolor);
   color: #fff;
   font-family: "Rajdhani", "Courier New", sans-serif;
@@ -584,15 +571,6 @@ body {
 
 .tracks-publi {
   margin-top: -1.5rem;
-}
-
-@-webkit-keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes rotation {
